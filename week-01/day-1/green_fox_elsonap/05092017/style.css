@@ -1,0 +1,72 @@
+* {
+    font-family: Courier;
+}
+
+.header {
+    background-color: #333333;
+    height: 3em;
+    padding: 5px 10%
+}
+
+.logo {
+    float: left;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+ul {
+    text-align: right;
+}
+
+li {
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+
+a {
+    color: #ff0099;
+}
+
+.introduction>h2 {
+    color: #ff0099;
+    font-size: 30px;
+}
+
+h1,
+.definitions>h2 {
+    font-size: 40px;
+    font-family: "Merriweather";
+}
+
+.main {
+    padding: 0 10%;
+}
+
+p {
+    font-family: Courier;
+    font-size: 20px;
+    width: 100%;
+    line-height: 25px;
+}
+
+.dashes {
+    text-align: center;
+    padding: 20px;
+}
+
+.definitions>h2 {
+    text-align: center;
+    color: black;
+}
+
+.definitions>h3 {
+    color: black;
+    font-size: 30px;
+}
+
+body {
+    background-image: url("topography.png")
+}
