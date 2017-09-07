@@ -1,0 +1,14 @@
+p {
+    width: 348px;
+    height: 133px;
+    background-color: rgb(14, 145, 161);
+    border: rgb(126, 206, 158) solid;
+    border-width: 4px;
+    margin: 10px;
+    font-size: 36px;
+    color: rgb(0, 85, 102);
+    font-family: Helvetica, Courier, sans-serif;
+    font-weight: 50;
+    padding-top: 20px;
+    padding-left: 15px;
+}
