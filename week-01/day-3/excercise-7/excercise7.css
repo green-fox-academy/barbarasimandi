@@ -1,0 +1,18 @@
+* {
+    width: 300px;
+    font-weight: bold;
+}
+
+p,
+p+div {
+    color: blue;
+}
+
+.container>div {
+    border: 1px solid green;
+}
+
+p {
+    background-color: yellow;
+    font-weight: lighter;
+}
