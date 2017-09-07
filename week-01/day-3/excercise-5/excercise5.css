@@ -1,0 +1,19 @@
+h1 {
+    color: #FF6347;
+}
+
+h2 {
+    color: #A48CF2;
+}
+
+a {
+    color: #FF6CFF
+}
+
+a:last-of-type {
+    color: blue;
+}
+
+p {
+    width: 500px;
+}
