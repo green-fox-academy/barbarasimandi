@@ -1,0 +1,53 @@
+    div {
+        width: 350px;
+        height: 516px;
+        border: rgb(66, 133, 244) 15px solid;
+    }
+    
+    p {
+        width: 350px;
+        height: 129px;
+        line-height: 125px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    p:first-child {
+        background-color: rgb(230, 118, 118);
+        border: none;
+        margin: 0px;
+        font-size: 36px;
+        color: white;
+        font-family: Helvetica, Courier, sans-serif;
+        font-weight: 100;
+    }
+    
+    p:nth-child(2) {
+        background-color: rgb(242, 240, 98);
+        border: none;
+        margin: 0px;
+        font-size: 36px;
+        color: white;
+        font-family: Helvetica, Courier, sans-serif;
+        font-weight: 100;
+    }
+    
+    p:nth-child(3) {
+        background-color: rgb(169, 230, 230);
+        border: none;
+        margin: 0px;
+        font-size: 36px;
+        color: white;
+        font-family: Helvetica, Courier, sans-serif;
+        font-weight: 100;
+    }
+    
+    p:nth-child(4) {
+        background-color: rgb(118, 146, 228);
+        border: none;
+        margin: 0px;
+        font-size: 36px;
+        color: white;
+        font-family: Helvetica, Courier, sans-serif;
+        font-weight: 100;
+    }
