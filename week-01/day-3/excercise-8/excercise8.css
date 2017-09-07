@@ -1,0 +1,24 @@
+.upper,
+.lower {
+    border: 5px solid #4285F4;
+    width: 1140px;
+    height: 110px;
+    vertical-align: middle;
+    margin: 30px;
+}
+
+span {
+    background-color: #4285F4;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 20px;
+}
+
+.lower {
+    background-color: #FF6347;
+}
+
+.lower>span {
+    background-color: #643579;
+}
