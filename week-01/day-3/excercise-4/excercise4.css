@@ -1,0 +1,14 @@
+h1 {
+    color: #F5A10A;
+    font-weight: lighter;
+    font-family: Arial;
+}
+
+p {
+    font-family: Courier New, Courier, monospace;
+}
+
+span {
+    width: 26em;
+    margin: 1em;
+}
