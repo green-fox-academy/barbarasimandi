@@ -1,0 +1,22 @@
+div {
+    margin: auto 38%;
+}
+
+p {
+    border: 2px solid black;
+    margin: 0 auto -2px auto;
+    padding: 20px;
+}
+
+p:first-of-type {
+    border-top: none;
+}
+
+p:last-child {
+    border-bottom: none;
+}
+
+p:hover {
+    background-color: #EC6842;
+    cursor: default;
+}
