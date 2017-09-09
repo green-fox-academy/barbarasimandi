@@ -1,0 +1,36 @@
+body {
+    margin: 0 41.5%;
+}
+
+p {
+    border: 2px solid white;
+    color: white;
+    font-family: Courier;
+    font-size: 16px;
+    background-image: url("duck.png");
+    background-repeat: no-repeat;
+    padding: 6% 12%;
+    text-align: center;
+    margin: 2%;
+}
+
+p:first-child,
+p:last-child {
+    background-size: 65px;
+}
+
+p:first-child {
+    background-color: #FF6347;
+    background-position: left;
+}
+
+p:nth-child(2) {
+    background-color: #643579;
+    background-position: center;
+    background-size: 150px;
+}
+
+p:last-child {
+    background-color: #808080;
+    background-position: bottom right;
+}
