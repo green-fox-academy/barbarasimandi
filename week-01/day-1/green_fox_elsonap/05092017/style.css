@@ -1,11 +1,15 @@
 * {
-    font-family: Courier;
+    font-family: consolas, Courier;
 }
 
-.header {
+.navbar {
     background-color: #333333;
     height: 3em;
-    padding: 5px 10%
+}
+
+.main,
+.navbar {
+    padding: 5px 10%;
 }
 
 .logo {
@@ -21,50 +25,60 @@ ul {
 li {
     text-transform: uppercase;
     display: inline-block;
-    font-size: 20px;
-    padding-left: 20px;
-    text-decoration: underline;
+    font-size: 15px;
+    padding-left: 30px;
 }
 
-a {
+a,
+.introduction>h2 {
     color: #ff0099;
 }
 
 .introduction>h2 {
-    color: #ff0099;
     font-size: 30px;
+    margin: 30px 0 -10px 0;
+    font-weight: lighter;
+    letter-spacing: -0.1em;
 }
 
 h1,
 .definitions>h2 {
-    font-size: 40px;
     font-family: "Merriweather";
 }
 
-.main {
-    padding: 0 10%;
+h1 {
+    font-size: 40px;
+    margin: 80px 0 20px 0;
 }
 
 p {
-    font-family: Courier;
     font-size: 20px;
-    width: 100%;
     line-height: 25px;
 }
 
 .dashes {
-    text-align: center;
-    padding: 20px;
+    padding: 20px 0;
+    font-size: 1px;
+    word-spacing: -0.8em;
 }
 
-.definitions>h2 {
-    text-align: center;
-    color: black;
-}
-
-.definitions>h3 {
+.definitions>h2,
+h3 {
     color: black;
     font-size: 30px;
+}
+
+.definitions>h2,
+.dashes {
+    text-align: center;
+}
+
+h3 {
+    margin: 30px 0 -10px 0;
+}
+
+.definitions>p {
+    font-size: 16px;
 }
 
 body {
