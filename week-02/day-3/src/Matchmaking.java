@@ -12,8 +12,10 @@ public class Matchmaking{
         for (int i = 0; i < girls.size(); i++) {
             String buff = "\"" + girls.get(i) + "\"" + ", " + "\"" + boys.get(i) + "\"";
             order.add(buff);
+            if (girls.size() - boys.size() < 0) {
+                girls.add(" ");
+            }
         }
         System.out.println(order);
-        // Without Jeff :(
     }
 }
