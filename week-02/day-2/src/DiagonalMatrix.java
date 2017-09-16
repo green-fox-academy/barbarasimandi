@@ -13,31 +13,28 @@ public class DiagonalMatrix {
 
     public static void main(String[] args) {
 
-                    // We are going to have 4 rows and 4 columns.
+    // We are going to have 4 rows and 4 columns.
+    int size = 4;
 
-                    int size = 4;
+    int[][] multiArray = new int[size][size];
 
+    // Filling up the rows
+    for (int i = 0; i < size; i++) {
 
-                    int[][] multiArray = new int[size][size];
+        //Filling up the columns
+        for (int j = 0; j < size; j++) {
 
-                    // Filling up the rows
-                    for (int i = 0; i < size; i++) {
-                        //Filling up the columns
-                        for (int j = 0; j < size; j++) {
-
-                            /*multiArray[i][j] = 8; */
-
-                            // If they're at the sam place, we should print 1, otherwise 0.
-                            if (j == i) {
-                                multiArray[i][j] = 1;
-                            } else {
-                                multiArray[i][j] = 0;
-                            }
-                            // Printing the elements
-                            System.out.print(multiArray[i][j] + " ");
-                        }
-                        // Putting them in a new row.
-                        System.out.println();
-                    }
+            // If they're at the same place, we should print 1, otherwise 0.
+            if (j == i) {
+                multiArray[i][j] = 1;
+            } else {
+                multiArray[i][j] = 0;
+            }
+            // Printing the elements
+            System.out.print(multiArray[i][j] + " ");
+        }
+        // Putting them in a new line.
+        System.out.println();
     }
+  }
 }
