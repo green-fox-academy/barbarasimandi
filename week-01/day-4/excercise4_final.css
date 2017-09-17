@@ -1,0 +1,246 @@
+.bigbox {
+    box-sizing: border-box;
+    width: 900px;
+    height: 900px;
+    background-color: #DCD6CD;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 10%;
+}
+
+.left,
+.right,
+.smalleft,
+.smallright,
+li,
+select[id="lakohely"],
+input[type='radio']:after,
+.vertical1_3_1>input[type]:after,
+.vertical1_3_2>input[type]:after {
+    display: inline-block;
+}
+
+.name,
+.header,
+.smallvertical,
+.smallbottom,
+.vertical,
+.bottom {
+    position: absolute;
+}
+
+.right,
+.smallright,
+.vertical1_3_2 {
+    float: right;
+}
+
+.left,
+.smalleft,
+.vertical1_3_1 {
+    float: left;
+}
+
+.header {
+    top: 6%;
+}
+
+.name {
+    top: 14%;
+    margin-left: -4px;
+}
+
+h3 {
+    background-color: #938C97;
+    color: white;
+    border-radius: 4px;
+    font-weight: lighter;
+    font-family: Helvetica;
+}
+
+.left>h3 {
+    margin-left: -2px;
+}
+
+.vertical,
+.bottom,
+.header {
+    width: 75%;
+    margin-left: -30px;
+}
+
+.vertical {
+    top: 15%;
+    height: 350px;
+}
+
+.bottom {
+    bottom: 20%;
+    height: 12em;
+    line-height: 25px;
+    vertical-align: middle;
+}
+
+.left,
+.right {
+    width: 49%;
+    height: 100%;
+}
+
+.smallvertical {
+    top: 37%;
+    width: 49%;
+}
+
+.smallbottom {
+    bottom: -24px;
+    width: 48%;
+}
+
+.smalleft,
+.smallright {
+    width: 48%;
+}
+
+li {
+    margin: 5px 7px 7px -40px;
+}
+
+li:first-child {
+    margin-top: -5px;
+}
+
+li,
+label,
+section,
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4A4261;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.vertical1_3_1>label,
+.vertical1_3_2>label,
+h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #4A4261;
+    font-weight: lighter;
+}
+
+p:last-child {
+    color: #9F9C98;
+    text-align: end;
+}
+
+.vertical1_3_2 {
+    padding-right: 45px;
+}
+
+.smallright>section {
+    padding: 0;
+    line-height: 2em;
+    margin-top: -4px;
+    margin-left: 20px;
+}
+
+input[type='radio']:after,
+.vertical1_3_1>input[type]:after,
+.vertical1_3_2>input[type]:after {
+    width: 15px;
+    height: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    visibility: visible;
+    border: 1px solid #938C97;
+}
+
+input[type='radio']:after {
+    border-radius: 15px;
+}
+
+.vertical1_3_1>input[type]:after,
+.vertical1_3_2>input[type]:after {
+    border-radius: 4px;
+}
+
+input[type='radio']:checked:after,
+.vertical1_3_1>input[type]:checked:after,
+.vertical1_3_2>input[type]:checked:after {
+    background-color: black;
+    border: 1px solid #938C97;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="text"],
+input[type="number"],
+select[id="lakohely"] {
+    border-radius: 4px;
+    border: 1px solid #938C97;
+}
+
+h3,
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="text"],
+input[type="number"],
+select[id="lakohely"] {
+    width: 300px;
+    margin: 2px;
+    padding: 10px;
+}
+
+input[type="number"] {
+    width: 50%;
+}
+
+select[id="lakohely"] {
+    width: 322px;
+}
+
+#magadrol {
+    width: 98%;
+    height: 70%;
+    border-radius: 4px;
+    border: 1px solid #938C97;
+}
+
+.bottom>button {
+    height: 38px;
+    color: #4A4261;
+    border-radius: 4px;
+    background-color: white;
+    text-align: middle;
+    text-transform: uppercase;
+}
+
+button[type="button"] {
+    width: 30%;
+}
+
+button:last-child {
+    float: right;
+    width: 25%;
+    padding: 10px;
+    font-size: 12px;
+    margin: 0 0 40px 0;
+}
+
+button:nth-of-type(2) {
+    float: left;
+    background-color: #51486A;
+    color: white;
+    width: 30%;
+    height: 40px;
+    margin: 0 0 40px 0;
+}
+
+#terms {
+    margin: 2em 0;
+}
