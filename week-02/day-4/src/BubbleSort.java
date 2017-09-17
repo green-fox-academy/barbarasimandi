@@ -27,7 +27,7 @@ public class BubbleSort {
 
       // We use this nested for loop to check every element next to each other.
       for (int j = 1; j < listOfNumbers.length - i; j++) {
-        
+
         // If they are higher than their right neighbours, with help of temp, we swap them.
         if (listOfNumbers[j - 1] > listOfNumbers[j]) {
           temp = listOfNumbers[j - 1];

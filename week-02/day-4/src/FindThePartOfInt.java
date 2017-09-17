@@ -11,8 +11,8 @@ public class FindThePartOfInt {
     // input: [1, 11, 34, 52, 61], 1
     // output: [0, 1, 4]
 
-    ArrayList<Integer> A = new ArrayList<>(Arrays.asList(1, 11, 34, 52, 61, 51, 12));
-    System.out.println(findThePart(1, A));
+    ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 11, 34, 52, 61, 51, 12));
+    System.out.println(findThePart(1, list));
   }
 
   public static ArrayList findThePart(int a, ArrayList<Integer> b) {
