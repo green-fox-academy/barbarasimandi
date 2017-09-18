@@ -16,7 +16,7 @@ public class Anagram {
 
     Arrays.sort(charA);
     Arrays.sort(charB);
-    
+
       for (int i = 0; i < b.length(); i++) {
         if (charA[i] != charB[i]) {
           return false;
