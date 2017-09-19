@@ -10,15 +10,24 @@ public class DivideByZero {
     // and prints the result.
     // it should print "fail" if the parameter is 0
 
-    divideByZero(0);
+    System.out.println("Enter a divisor!");
+    Scanner myScan = new Scanner(System.in);
+    int num = myScan.nextInt();
+
+    divideByZero(num);
   }
 
-  public static void divideByZero(int num) {
+  public static int divideByZero(int num) {
+
+    int result = 0;
 
     try {
-      int result = 10 / num;
+      result = 10 / num;
     } catch (ArithmeticException ex) {
       System.out.println("fail");
     }
+
+    System.out.println(result);
+    return result;
   }
 }
