@@ -10,16 +10,16 @@ public class FourRectangles {
       // draw four different size and color rectangles.
 
         graphics.setColor(Color.GREEN);
-        graphics.drawRect(20, 20, 100, 100);
+        graphics.fillRect(20, 20, 100, 100);
 
         graphics.setColor(Color.RED);
-        graphics.drawRect(20, 200, 100, 80);
+        graphics.fillRect(20, 200, 100, 80);
 
         graphics.setColor(Color.ORANGE);
-        graphics.drawRect(150, 200, 50, 99);
+        graphics.fillRect(150, 200, 50, 99);
 
         graphics.setColor(Color.MAGENTA);
-        graphics.drawRect(140, 100, 150, 70);
+        graphics.fillRect(140, 100, 150, 70);
     }
 
 //    Don't touch the code below
