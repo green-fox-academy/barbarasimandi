@@ -10,10 +10,6 @@ public class Garden {
   }
 
   public void waterFlora(int waterAmount) {
-    for (int j = 0; j < garden.size(); j++) {
-      if (garden.get(j).thirsty) {
-      }
-    }
     for (int i = 0; i < garden.size(); i++) {
       if (garden.get(i).thirsty) {
         garden.get(i).waterLevel += waterAmount / (i+1) * garden.get(i).waterAbsorb;
