@@ -8,21 +8,16 @@ public class Dominoes {
     // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
     // eg: [2, 4], [4, 3], [3, 5] ...
 
-    List<Domino> dominoesInOrder = new ArrayList<>();
-
-    dominoesInOrder.add(dominoes.get(0));
-
-    for (int i = 0; i < dominoes.size() ; i++) {
-      for (int j = 1; j < dominoes.size(); j++) {
-        int [] value1 = dominoesInOrder.get(i).getValues();
-        int [] value2 = dominoes.get(j).getValues();
-        if (value1[1] == value2[0]) {
-          dominoesInOrder.add(dominoes.get(j));
+    for (int i = 0; i < dominoes.size() - 1; i++) {
+      for (int j = i + 1; j < dominoes.size(); j++) {
+        if (dominoes.get(i).getValues()[1] == dominoes.get(j).getValues()[0]) {
+          Domino temp = dominoes.get(i + 1);
+          dominoes.set(i + 1, dominoes.get(j));
+          dominoes.set(j, temp);
         }
       }
     }
     System.out.println(dominoes);
-    System.out.println(dominoesInOrder);
   }
 
   static List<Domino> initializeDominoes() {

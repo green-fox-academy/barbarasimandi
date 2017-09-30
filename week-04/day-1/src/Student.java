@@ -11,6 +11,7 @@ public class Student {
   }
 
   public static void main(String[] args) {
+    Teacher teacher = new Teacher();
     Student student = new Student();
     student.learn();
     student.question(teacher);

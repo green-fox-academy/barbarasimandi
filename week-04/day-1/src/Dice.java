@@ -48,6 +48,8 @@ public class Dice {
     for (int i = 0; i < myDice.dices.length; i++) {
       while (myDice.dices[i] != 6) {
         myDice.reroll(i);
+        String actualStatus = Arrays.toString(myDice.getCurrent());
+        System.out.println(actualStatus);
       }
     }
   }
