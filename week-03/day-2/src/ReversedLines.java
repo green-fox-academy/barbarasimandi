@@ -12,7 +12,6 @@ public class ReversedLines {
     try {
       Path filePath1 = Paths.get("src/reversed-lines.txt");
       List<String> content1 = Files.readAllLines(filePath1);
-      List<String> normal = new ArrayList<>();
 
       for (int i = 0; i < content1.size(); i++) {
         for (int j = content1.get(i).length() - 1; j > 0; j--) {

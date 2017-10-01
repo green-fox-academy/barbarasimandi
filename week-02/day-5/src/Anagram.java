@@ -23,6 +23,6 @@ public class Anagram {
         }
       } return true;
   }
-  
+
 }
 

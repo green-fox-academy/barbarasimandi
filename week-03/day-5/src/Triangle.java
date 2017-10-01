@@ -16,7 +16,7 @@ public class Triangle {
   public static void triangle(int x, double y, int a, Graphics gr) {
     double magassag = (Math.sqrt(3.0) * a)/2;
 
-    if (a > 300) {            // if a > 200, it's not working because of the Math.sqrt(3) is not precise.
+    if (a > 200) {            // if a > 200, it's not working because of the Math.sqrt(3) is not precise.
       triangle(x,y,a/2,gr);
       triangle(x + a/2,y + y,a/2,gr);
       triangle(x+a/4, y + magassag/2, a/2, gr );

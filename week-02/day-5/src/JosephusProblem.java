@@ -26,7 +26,7 @@ public class JosephusProblem {
       arrLi.remove(toBeRemoved);
       toBeRemoved += 1;
 
-      if (toBeRemoved >= arrLi.size()){
+      if (toBeRemoved >= arrLi.size()) {
         toBeRemoved = toBeRemoved % arrLi.size();
       }
     }

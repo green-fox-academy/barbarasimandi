@@ -11,7 +11,7 @@ public class PurpleSteps {
       // reproduce this:
       // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-purpleSteps(0, 0, 15, graphics);
+purpleSteps(0, 0, 30, graphics);
     }
 
   public static void purpleSteps(int x, int y, int size, Graphics gr) {

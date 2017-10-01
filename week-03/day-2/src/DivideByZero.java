@@ -14,7 +14,7 @@ public class DivideByZero {
     Scanner myScan = new Scanner(System.in);
     int num = myScan.nextInt();
 
-    divideByZero(num);
+    System.out.println(divideByZero(num));
   }
 
   public static int divideByZero(int num) {
@@ -27,7 +27,6 @@ public class DivideByZero {
       System.out.println("fail");
     }
 
-    System.out.println(result);
     return result;
   }
 }

@@ -16,9 +16,11 @@ public class WriteSingleLine {
 
       List<String> content = new ArrayList();
       content.add("Barbara Simandi");
-      Path filePath = Paths.get("my-file.txt");
+      Path filePath = Paths.get("src/my-file.txt");
       Files.write(filePath, content);
-      System.out.println(content);
+
+      // For printing its content
+      /*System.out.println(content);*/
 
     } catch(IOException ex) {
       System.out.println("Unable to write file: my-file.txt");

@@ -32,7 +32,7 @@ public class RainbowBoxFunction {
 
   public static void rainbowBox(int size, ArrayList<Color> colorList, Graphics gr) {
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 7; i++) {
       gr.setColor(colorList.get(i));
       gr.fillRect(WIDTH/2 - size/2, HEIGHT/2 - size/2, size, size);
       size -= 30;

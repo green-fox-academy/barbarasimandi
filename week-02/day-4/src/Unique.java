@@ -21,7 +21,7 @@ public class Unique {
     // We iterate through the given Array, and check if the Array contains the elements given by their indexes.
       for (int i = 0; i < listOfNumbers.length; i++) {
         if (listOfReducedNumbers.contains(listOfNumbers[i])) {
-          System.out.println("Repeating number: " + listOfNumbers[i]);
+          /*System.out.println("Repeating number: " + listOfNumbers[i]);*/
         }
         else {
           listOfReducedNumbers.add(listOfNumbers[i]);

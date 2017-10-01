@@ -16,7 +16,7 @@ public class DrawDiamond {
     //
     // The diamond should have as many lines as the number was
 
-    double numberOfLines = 7;
+    double numberOfLines = 10;
     double num = numberOfLines / 2;
     double spaceIndex = num;
     double starIndex = -1;

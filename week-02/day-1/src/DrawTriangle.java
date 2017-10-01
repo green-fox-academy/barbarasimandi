@@ -10,7 +10,7 @@ public class DrawTriangle {
         //
         // The triangle should have as many lines as the number was
 
-        int num = 3;
+        int num = 9;
         String row = "";
         for (int i = 0; i < num; i++) {
             row = row + "*";

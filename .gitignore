@@ -2,10 +2,4 @@
 .idea/
 out
 *.xml
-*.iml
-
-# gf software files
-.gf.json
-
-# if you have a mac
-.DS_Store
+*.iml*.class
