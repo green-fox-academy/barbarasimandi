@@ -23,8 +23,15 @@ public class Board extends JComponent implements KeyListener {
     graphics.fillRect(testBoxX, testBoxY, 100, 100);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-    PositionedImage image = new PositionedImage("assets/floor.png", 300, 300);
-    image.draw(graphics);
+
+    PositionedImage image = new PositionedImage("assets/floor.png", 0, 0);
+    for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 10; j++) {
+        image.posX = i * 72;
+        image.posY = j * 72;
+        image.draw(graphics);
+      }
+    }
   }
 
   public static void main(String[] args) {
