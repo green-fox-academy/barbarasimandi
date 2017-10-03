@@ -1,7 +1,13 @@
+import java.awt.event.KeyEvent;
+
 public class Hero extends PositionedImage {
 
-  public Hero() {
-    super("assets/hero-down.png", 0, 0);
+  String heroImage = new String;
+
+  public Hero(int x, int y) {
+      super(heroImage, x, y);
+    }
   }
 
-}
+
+

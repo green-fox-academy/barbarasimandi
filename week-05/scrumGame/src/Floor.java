@@ -1,6 +1,6 @@
 public class Floor extends PositionedImage {
 
-  public Floor () {
-    super("assets/floor.png", 0, 0);
+  public Floor (int x, int y) {
+    super("assets/floor.png", x, y);
   }
 }

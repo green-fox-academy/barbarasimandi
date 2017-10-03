@@ -5,8 +5,8 @@ public class Wall extends PositionedImage {
 
   boolean movable;
 
-  public Wall () {
-    super("assets/wall.png", 0, 0);
+  public Wall (int x, int y) {
+    super("assets/wall.png", x, y);
     this.movable = false;
   }
 
