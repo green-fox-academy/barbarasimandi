@@ -8,7 +8,10 @@ public class Board extends JComponent implements KeyListener {
   Floor floor;
   Wall wall;
   Hero hero;
-/*  String heroImage = "assets/hero-down.png";*/
+  Skeleton skeleton;
+  Skeleton skeletoen;
+  Skeleton skeletoan;
+  Boss boss;
 
   public Board() {
     // set the size of your draw board
@@ -16,6 +19,10 @@ public class Board extends JComponent implements KeyListener {
     setVisible(true);
     boardCoordinates = new BoardCoordinates();
     hero = new Hero(0, 0);
+    skeleton = new Skeleton(2,3);
+    skeletoan = new Skeleton(0,9);
+    skeletoen = new Skeleton(4,5);
+    boss = new Boss(9,9);
   }
 
     @Override
@@ -37,6 +44,10 @@ public class Board extends JComponent implements KeyListener {
         }
       }
       hero.draw(graphics);
+      skeleton.draw(graphics);
+      skeletoen.draw(graphics);
+      skeletoan.draw(graphics);
+      boss.draw(graphics);
       }
 
 
