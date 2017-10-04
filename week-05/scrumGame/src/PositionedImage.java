@@ -19,6 +19,7 @@ public class PositionedImage {
     }
   }
 
+
   public void draw(Graphics graphics) {
     if (image != null) {
       graphics.drawImage(image, posX * 72, posY * 72, null);

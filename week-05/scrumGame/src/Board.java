@@ -4,9 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
-  int HeroPosX;
-  int HeroPosY;
-
   BoardCoordinates boardCoordinates;
   Floor floor;
   Wall wall;
@@ -18,6 +15,7 @@ public class Board extends JComponent implements KeyListener {
     setPreferredSize(new Dimension(720, 720));
     setVisible(true);
     boardCoordinates = new BoardCoordinates();
+    hero = new Hero(0, 0);
   }
 
     @Override
@@ -38,9 +36,6 @@ public class Board extends JComponent implements KeyListener {
           }
         }
       }
-
-
-      hero = new Hero(heroImage, HeroPosX, HeroPosY);
       hero.draw(graphics);
       }
 
@@ -76,21 +71,21 @@ public class Board extends JComponent implements KeyListener {
     // When the up or down keys hit, we change the position of our box
 
       if (e.getKeyCode() == KeyEvent.VK_UP) {
-        HeroPosY -= 1;
-
-          heroImage = "assets/hero-up.png";
+        hero.posY -= 1;
+        hero.up();
 
 
       } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-        HeroPosY += 1;
-
+        hero.posY += 1;
+        hero.down();
       }
       else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-        HeroPosX -= 1;
-
+        hero.posX -= 1;
+        hero.left();
       }
       else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        HeroPosX += 1;
+        hero.posX += 1;
+        hero.right();
       }
       // and redraw to have a new picture with the new coordinates
       repaint();
