@@ -8,7 +8,7 @@ public class Board extends JComponent implements KeyListener {
   Floor floor;
   Wall wall;
   Hero hero;
-  String heroImage = "assets/hero-down.png";
+/*  String heroImage = "assets/hero-down.png";*/
 
   public Board() {
     // set the size of your draw board
@@ -68,35 +68,11 @@ public class Board extends JComponent implements KeyListener {
   // But actually we can use just this one for our goals here
   @Override
   public void keyReleased(KeyEvent e) {
-    // When the up or down keys hit, we change the position of our box
 
-      if (e.getKeyCode() == KeyEvent.VK_UP) {
-        if (hero.posY > 0 && !boardCoordinates.isItAWall(hero.posY - 1, hero.posX )) {
-          hero.posY -= 1;
-          hero.up();
-        }
-      }
-      else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-        if (hero.posY < 9 && !boardCoordinates.isItAWall(hero.posY + 1, hero.posX)) {
-          hero.posY += 1;
-          hero.down();
-        }
-      }
-      else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-        if (hero.posX > 0 && !boardCoordinates.isItAWall(hero.posY, hero.posX - 1)) {
-          hero.posX -= 1;
-          hero.left();
-        }
-      }
-      else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        if (hero.posX < 9 && !boardCoordinates.isItAWall(hero.posY, hero.posX + 1)) {
-          hero.posX += 1;
-          hero.right();
-        }
-      }
-      // and redraw to have a new picture with the new coordinates
+      PushTheButtons keys = new PushTheButtons(boardCoordinates, hero);
+      keys.move(e);
+
       repaint();
     }
-
   }
 
