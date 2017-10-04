@@ -3,15 +3,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class HUD {
-  String text;
   int x;
   int y;
-  Hero hero = new Hero(0,0);
+  Hero hero;
 
-  public HUD(int x, int y) {
-    this.text = "Hero(Level " + hero.level + ") HP: " + hero.maxHP + "/" + hero.HP + " | DP: " + hero.DP + " | SP: " + hero.SP;
+  public HUD(int x, int y, Hero hero) {
+    this.hero = hero;
     this.x = x;
     this.y = y;
+
   }
   public void draw(Graphics graphics) {
       graphics.setColor(Color.WHITE);
@@ -19,6 +19,6 @@ public class HUD {
       graphics.setColor(Color.BLACK);
       Font myFont = new Font("Arial", 1, 25);
       graphics.setFont(myFont);
-      graphics.drawString(text, x * 72, y * 72);
+      graphics.drawString("Hero (Level " + hero.level + ") HP: " + hero.maxHP + "/" + hero.HP + " | DP: " + hero.DP + " | SP: " + hero.SP, x * 72, y * 72);
   }
 }

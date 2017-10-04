@@ -9,7 +9,4 @@ public class Wall extends PositionedImage {
     super("assets/wall.png", x, y);
     this.movable = false;
   }
-
-
-
 }

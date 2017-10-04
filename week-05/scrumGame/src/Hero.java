@@ -1,12 +1,10 @@
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
-public class Hero extends PositionedImage {
+public class Hero extends Creature {
 
   public Hero(int x, int y) {
     super("assets/hero-down.png", x, y);
+    this.HP = 20 + 3 * d6;
+    this.DP = 2 * d6;
+    this.SP = 5 + d6;
   }
 
   public void down() {
@@ -25,6 +23,3 @@ public class Hero extends PositionedImage {
     readFromFile("assets/hero-up.png");
   }
 }
-
-
-

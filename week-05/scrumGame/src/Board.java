@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -7,6 +8,7 @@ public class Board extends JComponent implements KeyListener {
   BoardCoordinates boardCoordinates;
   Floor floor;
   Wall wall;
+  ArrayList<PositionedImage> p;
   Hero hero;
   Skeleton skeleton;
   Skeleton skeletoen;
@@ -24,7 +26,20 @@ public class Board extends JComponent implements KeyListener {
     skeletoan = new Skeleton(0,9);
     skeletoen = new Skeleton(4,5);
     boss = new Boss(9,9);
-    hud = new HUD(0,11);
+    hud = new HUD(0,11, hero);
+    p = new ArrayList<>();
+
+    for (int row = 0; row < 10; row++) {
+      for (int col = 0; col < 10; col++) {
+        if (boardCoordinates.getValue(row, col) == 0) {
+          floor = new Floor(col, row);
+          p.add(floor);
+        } else {
+          wall = new Wall(col, row);
+          p.add(wall);
+        }
+      }
+    }
   }
 
     @Override
@@ -33,17 +48,8 @@ public class Board extends JComponent implements KeyListener {
 
       // here you have a 720x720 canvas
       // you can create and draw an image using the class below e.g.
-
-      for (int row = 0; row < 10; row++) {
-        for (int col = 0; col < 10; col++) {
-          if (boardCoordinates.getValue(row, col) == 0) {
-            floor = new Floor(col, row);
-            floor.draw(graphics);
-          } else {
-            wall = new Wall(col, row);
-            wall.draw(graphics);
-          }
-        }
+      for (int i = 0; i < p.size(); i++) {
+        p.get(i).draw(graphics);
       }
 
         hero.draw(graphics);
@@ -51,6 +57,7 @@ public class Board extends JComponent implements KeyListener {
         skeletoen.draw(graphics);
         skeletoan.draw(graphics);
         boss.draw(graphics);
+
         hud.draw(graphics);
     }
 
