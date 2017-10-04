@@ -25,13 +25,13 @@ public class Board extends JComponent implements KeyListener {
       // here you have a 720x720 canvas
       // you can create and draw an image using the class below e.g.
 
-      for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-          if (boardCoordinates.getValue(i, j) == 0) {
-            floor = new Floor(i, j);
+      for (int row = 0; row < 10; row++) {
+        for (int col = 0; col < 10; col++) {
+          if (boardCoordinates.getValue(row, col) == 0) {
+            floor = new Floor(col, row);
             floor.draw(graphics);
           } else {
-            wall = new Wall(i, j);
+            wall = new Wall(col, row);
             wall.draw(graphics);
           }
         }
@@ -71,21 +71,28 @@ public class Board extends JComponent implements KeyListener {
     // When the up or down keys hit, we change the position of our box
 
       if (e.getKeyCode() == KeyEvent.VK_UP) {
-        hero.posY -= 1;
-        hero.up();
-
-
-      } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-        hero.posY += 1;
-        hero.down();
+        if (hero.posY > 0 && !boardCoordinates.isItAWall(hero.posY - 1, hero.posX )) {
+          hero.posY -= 1;
+          hero.up();
+        }
+      }
+      else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+        if (hero.posY < 9 && !boardCoordinates.isItAWall(hero.posY + 1, hero.posX)) {
+          hero.posY += 1;
+          hero.down();
+        }
       }
       else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-        hero.posX -= 1;
-        hero.left();
+        if (hero.posX > 0 && !boardCoordinates.isItAWall(hero.posY, hero.posX - 1)) {
+          hero.posX -= 1;
+          hero.left();
+        }
       }
       else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        hero.posX += 1;
-        hero.right();
+        if (hero.posX < 9 && !boardCoordinates.isItAWall(hero.posY, hero.posX + 1)) {
+          hero.posX += 1;
+          hero.right();
+        }
       }
       // and redraw to have a new picture with the new coordinates
       repaint();
