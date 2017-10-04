@@ -46,13 +46,13 @@ public class Board extends JComponent implements KeyListener {
         }
       }
 
-      hero.draw(graphics);
-      skeleton.draw(graphics);
-      skeletoen.draw(graphics);
-      skeletoan.draw(graphics);
-      boss.draw(graphics);
-      hud.draw(graphics);
-      }
+        hero.draw(graphics);
+        skeleton.draw(graphics);
+        skeletoen.draw(graphics);
+        skeletoan.draw(graphics);
+        boss.draw(graphics);
+        hud.draw(graphics);
+    }
 
 
   public static void main(String[] args) {
@@ -87,7 +87,9 @@ public class Board extends JComponent implements KeyListener {
       PushTheButtons keys = new PushTheButtons(boardCoordinates, hero);
       keys.move(e);
 
+    if (hero.alive || skeletoan.alive || skeletoen.alive || skeleton.alive || boss.alive) {
       repaint();
     }
   }
+}
 
