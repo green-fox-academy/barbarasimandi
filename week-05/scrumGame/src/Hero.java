@@ -10,35 +10,19 @@ public class Hero extends PositionedImage {
   }
 
   public void down() {
-    try {
-      image = ImageIO.read(new File("assets/hero-down.png"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    readFromFile("assets/hero-down.png");
   }
 
   public void right() {
-    try {
-      image = ImageIO.read(new File("assets/hero-right.png"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    readFromFile("assets/hero-right.png");
   }
 
   public void left() {
-    try {
-      image = ImageIO.read(new File("assets/hero-left.png"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+    readFromFile("assets/hero-left.png");
+   }
 
   public void up() {
-    try {
-      image = ImageIO.read(new File("assets/hero-up.png"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    readFromFile("assets/hero-up.png");
   }
 }
 
