@@ -7,17 +7,13 @@ public class Creature extends PositionedImage {
   int HP;
   int DP;
   int SP;
-  int d6 = (int)(Math.random()*7);
+  int d6 = (int)(1 + Math.random()*6);
   boolean alive = true;
 
  public Creature(String fileName, int col, int row) {
    super(fileName, col, row);
    this.level = 1;
  }
-
-  public void die() {
-    alive = false;
-  }
 
   public void battle(Creature creature, Creature creature1) {
     if ((creature.HP > 0 && creature1.HP > 0) && isThereAnything(creature, creature1)) {
@@ -30,7 +26,6 @@ public class Creature extends PositionedImage {
     }
   }
 
-
   public void strike(Creature creature, Creature creature1) {
    int SV = creature.SP + d6*2;
    if (SV > creature1.DP) {
@@ -42,11 +37,14 @@ public class Creature extends PositionedImage {
     return creature.posX == creature1.posX && creature.posY == creature1.posY;
   }
 
+  public void die() {
+    alive = false;
+  }
+
   /*public Creature whoIsThere() {
     for (int i = 0; i < ; i++) {
 
     }
-    }
+   }
   } return */
-
 }

@@ -52,9 +52,15 @@ public class Board extends JComponent implements
         }
         Skeleton sk = new Skeleton(y,x);
         villains.add(sk);
-      }
+    }
 
-    boss = new Boss(9, 9);
+    int bossX = (int)(5+Math.random()*5);
+    int bossY = (int)(5+Math.random()*5);
+    while (boardCoordinates.isItAWall(bossX,bossY)) {
+      bossX = (int) (5 + Math.random() * 5);
+      bossY = (int) (5 + Math.random() * 5);
+    }
+    boss = new Boss(bossY, bossX);
     villains.add(boss);
 
     hud = new HUD(0, 11, hero, boss, villains);
@@ -68,6 +74,7 @@ public class Board extends JComponent implements
       if (map == null) {
         doMap();
       }
+
       for (int i = 0; i < map.size(); i++) {
         map.get(i).draw(graphics);
       }
