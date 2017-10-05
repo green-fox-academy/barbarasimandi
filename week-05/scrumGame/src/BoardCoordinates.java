@@ -3,8 +3,6 @@ import java.util.ArrayList;
 public class BoardCoordinates {
   int value;
   int[][] boardMap;
-  Hero hero;
-  ArrayList<Creature> monsters;
 
   public BoardCoordinates() {
     this.boardMap = new int[][] {

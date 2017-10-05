@@ -22,4 +22,10 @@ public class Hero extends Creature {
   public void up() {
     readFromFile("assets/hero-up.png");
   }
+
+  public void levelUp() {
+    this.HP += d6;
+    this.DP += d6;
+    this.SP += d6;
+  }
 }

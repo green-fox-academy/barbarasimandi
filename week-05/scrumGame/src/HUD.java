@@ -9,13 +9,13 @@ public class HUD {
   int y;
   Hero hero;
   Boss boss;
-  ArrayList<Skeleton> skeletons;
+  ArrayList<Creature> monsters;
 
 
-  public HUD(int x, int y, Hero hero, Boss boss, ArrayList<Skeleton> skeletons) {
+  public HUD(int x, int y, Hero hero, Boss boss, ArrayList<Creature> monsters) {
     this.hero = hero;
     this.boss = boss;
-    this.skeletons = skeletons;
+    this.monsters = monsters;
 
     this.x = x;
     this.y = y;
@@ -33,26 +33,18 @@ public class HUD {
         "Hero (Level " + hero.level + ") HP: " + hero.maxHP + "/" + hero.HP + " | DP: " + hero.DP
             + " | SP: " + hero.SP, x * 72, y * 72);
 
-    if (boss.isThereAnything(hero, boss)) {
-      graphics.drawString(
-          "Boss (Level " + boss.level + ") HP: " + boss.maxHP + "/" + boss.HP + " | DP: " + boss.DP
-              + " | SP: " + boss.SP, x * 70, y * 70);
+    for (int i = 0; i < monsters.size(); i++) {
+      if (boss.isThereAnything(hero, boss) && boss.alive) {
+        graphics.drawString(
+            "Boss (Level " + boss.level + ") HP: " + boss.maxHP + "/" + boss.HP + " | DP: " + boss.DP
+                + " | SP: " + boss.SP, x * 70, y * 70);
 
-    }
-    else if (skeletons.get(0).isThereAnything(hero, skeletons.get(0))) {
-      graphics.drawString(
-          "Skeleton (Level " + skeletons.get(0).level + ") HP: " + skeletons.get(0).maxHP + "/" + skeletons.get(0).HP + " | DP: " + skeletons.get(0).DP
-              + " | SP: " + skeletons.get(0).SP, x * 70, y * 70);
-    }
-    else if (skeletons.get(1).isThereAnything(hero, skeletons.get(1))) {
-      graphics.drawString(
-          "Skeleton (Level " + skeletons.get(1).level + ") HP: " + skeletons.get(1).maxHP + "/" + skeletons.get(1).HP + " | DP: " + skeletons.get(1).DP
-              + " | SP: " + skeletons.get(1).SP, x * 70, y * 70);
-    }
-    else if (skeletons.get(2).isThereAnything(hero, skeletons.get(2))) {
-      graphics.drawString(
-          "Skeleton (Level " + skeletons.get(2).level + ") HP: " + skeletons.get(2).maxHP + "/" + skeletons.get(2).HP + " | DP: " + skeletons.get(2).DP
-              + " | SP: " + skeletons.get(2).SP, x * 70, y * 70);
+      }
+      else if (monsters.get(i).isThereAnything(hero, monsters.get(i)) && monsters.get(i).alive) {
+        graphics.drawString(
+            "Skeleton (Level " + monsters.get(i).level + ") HP: " + monsters.get(i).maxHP + "/" + monsters.get(i).HP + " | DP: " + monsters.get(i).DP
+                + " | SP: " + monsters.get(i).SP, x * 70, y * 70);
+      }
     }
   }
 }

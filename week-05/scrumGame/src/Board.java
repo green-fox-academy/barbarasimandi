@@ -12,10 +12,6 @@ public class Board extends JComponent implements
   Wall wall;
   ArrayList<PositionedImage> map;
   Hero hero;
-  Skeleton skeleton;
-  Skeleton skeletoen;
-  Skeleton skeletoan;
-  ArrayList<Skeleton> skeletons;
   Boss boss;
   ArrayList<Creature> villains;
   HUD hud;
@@ -45,32 +41,29 @@ public class Board extends JComponent implements
   public void createCreatures() {
 
     hero = new Hero(0, 0);
-
-    skeletons = new ArrayList<>();
-    skeleton = new Skeleton(4, 3);
-    skeletons.add(skeleton);
-    skeletoan = new Skeleton(0, 9);
-    skeletons.add(skeletoan);
-    skeletoen = new Skeleton(4, 5);
-    skeletons.add(skeletoen);
-    boss = new Boss(9, 9);
     villains = new ArrayList<>();
-    villains.add(skeleton);
-    villains.add(skeletoan);
-    villains.add(skeletoen);
+
+    for (int i = 0; i < (int)(1+Math.random()*50); i++) {
+        int x = (int) (Math.random() * 9);
+        int y = (int) (Math.random() * 9);
+        while (boardCoordinates.isItAWall(x,y)) {
+          x = (int) (Math.random() * 9);
+          y = (int) (Math.random() * 9);
+        }
+        Skeleton sk = new Skeleton(y,x);
+        villains.add(sk);
+      }
+
+    boss = new Boss(9, 9);
     villains.add(boss);
 
-    hud = new HUD(0, 11, hero, boss, skeletons);
+    hud = new HUD(0, 11, hero, boss, villains);
 
   }
-
 
     @Override
     public void paint (Graphics graphics) {
       super.paint(graphics);
-
-      // here you have a 720x720 canvas
-      // you can create and draw an image using the class below e.g.
 
       if (map == null) {
         doMap();
@@ -82,15 +75,17 @@ public class Board extends JComponent implements
       if (hero == null) {
         createCreatures();
       }
-      /*if (hero.alive || skeletoan.alive || skeletoen.alive || skeleton.alive || boss.alive) {*/
+
+      if (hero.alive) {
         hero.draw(graphics);
+      }
 
       for (int i = 0; i < villains.size(); i++) {
+        if (villains.get(i).alive)
         villains.get(i).draw(graphics);
       }
 
         hud.draw(graphics);
-      /*}*/
     }
 
   public static void main(String[] args) {
@@ -122,8 +117,10 @@ public class Board extends JComponent implements
   @Override
   public void keyReleased(KeyEvent e) {
 
-      PushTheButtons keys = new PushTheButtons(boardCoordinates, hero, skeleton, villains);
+      PushTheButtons keys = new PushTheButtons(boardCoordinates, hero, villains);
       keys.move(e);
+      PushTheButtons keys2 = new PushTheButtons(boardCoordinates, hero, villains);
+      keys2.fight(e);
       repaint();
   }
 }

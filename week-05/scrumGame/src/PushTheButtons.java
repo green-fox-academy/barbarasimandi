@@ -5,14 +5,11 @@ public class PushTheButtons {
   BoardCoordinates boardCoordinates;
   Hero hero;
   ArrayList<Creature> monsters;
-  Skeleton skeleton;
 
-  public PushTheButtons(BoardCoordinates boardCoordinates, Hero hero, Skeleton skeleton, ArrayList<Creature> monsters) {
+  public PushTheButtons(BoardCoordinates boardCoordinates, Hero hero, ArrayList<Creature> monsters) {
     this.boardCoordinates = boardCoordinates;
     this.hero = hero;
-    this.skeleton = skeleton;
     this.monsters = monsters;
-    monsters.add(skeleton);
   }
 
   public void move(KeyEvent e) {
@@ -53,7 +50,11 @@ public class PushTheButtons {
 
   public void fight(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-      
+      for (int i = 0; i < monsters.size(); i++) {
+        if (hero.isThereAnything(hero, monsters.get(i))) {
+          hero.battle(hero, monsters.get(i));
+        }
+      }
     }
   }
 }

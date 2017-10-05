@@ -19,15 +19,34 @@ public class Creature extends PositionedImage {
     alive = false;
   }
 
-  public void fight(Creature creature, Creature creature1) {
-      if (isThereAnything(creature, creature1)){
+  public void battle(Creature creature, Creature creature1) {
+    if ((creature.HP > 0 && creature1.HP > 0) && isThereAnything(creature, creature1)) {
+      strike(creature, creature1);
+      strike(creature1, creature);
+    } else if (creature.HP <= 0) {
+      creature.die();
+    } else if (creature1.HP <= 0) {
+      creature1.die();
+    }
+  }
 
-      }
 
+  public void strike(Creature creature, Creature creature1) {
+   int SV = creature.SP + d6*2;
+   if (SV > creature1.DP) {
+     creature1.HP -= (SV - creature1.DP);
+   }
   }
 
   public boolean isThereAnything(Creature creature, Creature creature1) {
     return creature.posX == creature1.posX && creature.posY == creature1.posY;
   }
+
+  /*public Creature whoIsThere() {
+    for (int i = 0; i < ; i++) {
+
+    }
+    }
+  } return */
 
 }
