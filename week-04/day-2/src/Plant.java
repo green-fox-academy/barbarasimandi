@@ -10,8 +10,9 @@ public class Plant {
     public Plant(String color){
       this.color = color;
       this.waterLevel = 0;
+      this.waterAbsorb = 0.0;
       this.thirsty = false;
-    }
 
     }
+}
 
