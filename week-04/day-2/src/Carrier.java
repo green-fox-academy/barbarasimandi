@@ -60,8 +60,8 @@ public class Carrier {
 
     second.addAircraft("F35");
 
-    /*first.fill();
-    second.fill();*/
+    first.fill();
+    second.fill();
 
     System.out.println(first.getStatus());
     System.out.println(second.getStatus());
@@ -72,8 +72,8 @@ public class Carrier {
     System.out.println(first.getStatus());
     System.out.println(second.getStatus());
 
-    /*first.fill();
-    System.out.println(first.getStatus());*/
+    first.fill();
+    System.out.println(first.getStatus());
 
   }
 }
