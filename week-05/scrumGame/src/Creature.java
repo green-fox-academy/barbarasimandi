@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Creature extends PositionedImage {
 
   int level;
@@ -16,4 +18,16 @@ public class Creature extends PositionedImage {
   public void die() {
     alive = false;
   }
+
+  public void fight(Creature creature, Creature creature1) {
+      if (isThereAnything(creature, creature1)){
+
+      }
+
+  }
+
+  public boolean isThereAnything(Creature creature, Creature creature1) {
+    return creature.posX == creature1.posX && creature.posY == creature1.posY;
+  }
+
 }

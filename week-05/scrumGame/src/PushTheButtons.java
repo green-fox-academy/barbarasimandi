@@ -1,12 +1,18 @@
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 public class PushTheButtons {
   BoardCoordinates boardCoordinates;
   Hero hero;
+  ArrayList<Creature> monsters;
+  Skeleton skeleton;
 
-  public PushTheButtons(BoardCoordinates boardCoordinates, Hero hero) {
+  public PushTheButtons(BoardCoordinates boardCoordinates, Hero hero, Skeleton skeleton, ArrayList<Creature> monsters) {
     this.boardCoordinates = boardCoordinates;
     this.hero = hero;
+    this.skeleton = skeleton;
+    this.monsters = monsters;
+    monsters.add(skeleton);
   }
 
   public void move(KeyEvent e) {
@@ -15,7 +21,7 @@ public class PushTheButtons {
         hero.posY -= 1;
         hero.up();
       }
-      else if (hero.posY == 0 || boardCoordinates.isItAWall(hero.posY - 1, hero.posX)) {
+      else if (hero.posY == 0 || boardCoordinates.isItAWall(hero.posY - 1, hero.posX) ) {
         hero.down();
       }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -42,6 +48,12 @@ public class PushTheButtons {
       else if (hero.posX == 9 || boardCoordinates.isItAWall(hero.posY, hero.posX + 1)) {
         hero.left();
       }
+    }
+  }
+
+  public void fight(KeyEvent e) {
+    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+      
     }
   }
 }

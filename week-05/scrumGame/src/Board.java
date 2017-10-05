@@ -4,16 +4,20 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Board extends JComponent implements KeyListener {
+public class Board extends JComponent implements
+    KeyListener {
+
   BoardCoordinates boardCoordinates;
   Floor floor;
   Wall wall;
-  ArrayList<PositionedImage> p;
+  ArrayList<PositionedImage> map;
   Hero hero;
   Skeleton skeleton;
   Skeleton skeletoen;
   Skeleton skeletoan;
+  ArrayList<Skeleton> skeletons;
   Boss boss;
+  ArrayList<Creature> villains;
   HUD hud;
 
   public Board() {
@@ -21,26 +25,45 @@ public class Board extends JComponent implements KeyListener {
     setPreferredSize(new Dimension(720, 796));
     setVisible(true);
     boardCoordinates = new BoardCoordinates();
-    hero = new Hero(0, 0);
-    skeleton = new Skeleton(2,3);
-    skeletoan = new Skeleton(0,9);
-    skeletoen = new Skeleton(4,5);
-    boss = new Boss(9,9);
-    hud = new HUD(0,11, hero);
-    p = new ArrayList<>();
+  }
 
+  public void doMap() {
+    map = new ArrayList<>();
     for (int row = 0; row < 10; row++) {
       for (int col = 0; col < 10; col++) {
         if (boardCoordinates.getValue(row, col) == 0) {
           floor = new Floor(col, row);
-          p.add(floor);
+          map.add(floor);
         } else {
           wall = new Wall(col, row);
-          p.add(wall);
+          map.add(wall);
         }
       }
     }
   }
+
+  public void createCreatures() {
+
+    hero = new Hero(0, 0);
+
+    skeletons = new ArrayList<>();
+    skeleton = new Skeleton(4, 3);
+    skeletons.add(skeleton);
+    skeletoan = new Skeleton(0, 9);
+    skeletons.add(skeletoan);
+    skeletoen = new Skeleton(4, 5);
+    skeletons.add(skeletoen);
+    boss = new Boss(9, 9);
+    villains = new ArrayList<>();
+    villains.add(skeleton);
+    villains.add(skeletoan);
+    villains.add(skeletoen);
+    villains.add(boss);
+
+    hud = new HUD(0, 11, hero, boss, skeletons);
+
+  }
+
 
     @Override
     public void paint (Graphics graphics) {
@@ -48,19 +71,27 @@ public class Board extends JComponent implements KeyListener {
 
       // here you have a 720x720 canvas
       // you can create and draw an image using the class below e.g.
-      for (int i = 0; i < p.size(); i++) {
-        p.get(i).draw(graphics);
+
+      if (map == null) {
+        doMap();
+      }
+      for (int i = 0; i < map.size(); i++) {
+        map.get(i).draw(graphics);
       }
 
+      if (hero == null) {
+        createCreatures();
+      }
+      /*if (hero.alive || skeletoan.alive || skeletoen.alive || skeleton.alive || boss.alive) {*/
         hero.draw(graphics);
-        skeleton.draw(graphics);
-        skeletoen.draw(graphics);
-        skeletoan.draw(graphics);
-        boss.draw(graphics);
+
+      for (int i = 0; i < villains.size(); i++) {
+        villains.get(i).draw(graphics);
+      }
 
         hud.draw(graphics);
+      /*}*/
     }
-
 
   public static void main(String[] args) {
     // Here is how you set up a new window and adding our board to it
@@ -91,12 +122,9 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
 
-      PushTheButtons keys = new PushTheButtons(boardCoordinates, hero);
+      PushTheButtons keys = new PushTheButtons(boardCoordinates, hero, skeleton, villains);
       keys.move(e);
-
-    if (hero.alive || skeletoan.alive || skeletoen.alive || skeleton.alive || boss.alive) {
       repaint();
-    }
   }
 }
 
