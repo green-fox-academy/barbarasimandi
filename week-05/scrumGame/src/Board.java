@@ -17,7 +17,6 @@ public class Board extends JComponent implements
   HUD hud;
 
   public Board() {
-    // set the size of your draw board
     setPreferredSize(new Dimension(720, 796));
     setVisible(true);
     boardCoordinates = new BoardCoordinates();

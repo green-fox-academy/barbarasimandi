@@ -1,3 +1,4 @@
+/*
 public class WarApp {
 
   public static void main(String[] args) {
@@ -7,6 +8,7 @@ public class WarApp {
     armada1.fillArmada();
     armada2.fillArmada();
 
-    armada1.war(// I need ArrayList<Ship> here but I only have Armada);
+    armada1.war(armada2);
   }
 }
+*/
