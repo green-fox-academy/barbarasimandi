@@ -1,5 +1,7 @@
-.idea
-/out
+.idea/
+out
 *.xml
 *.iml
+*.json
+*.csv
 *.class
