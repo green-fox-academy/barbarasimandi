@@ -1,5 +1,9 @@
-# IntelliJ files and folders
-.idea/
-out
+
+.idea
+/
+out 
+
 *.xml
-*.iml*.class
+ 
+*.iml 
+*.class
