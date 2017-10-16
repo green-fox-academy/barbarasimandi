@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
-  ArrayList<Card> deck;
   String[] color = {"S", "H", "C", "D"};
   String[] value = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+  ArrayList<Card> deck;
 
   public Deck() {
     deck = new ArrayList<>();
@@ -17,5 +18,10 @@ public class Deck {
        deck.add(new Card(color[i], value[j]));
       }
     }
+    shuffle();
+  }
+
+  public void shuffle() {
+    Collections.shuffle(deck);
   }
 }
