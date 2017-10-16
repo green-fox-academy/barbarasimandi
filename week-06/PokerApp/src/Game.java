@@ -10,11 +10,11 @@ public class Game {
 
   public String basicCase(Hand player1) {
     String combo = "";
-    ArrayList<Card> temp = new ArrayList<>();
+    ArrayList<String> temp = new ArrayList<>();
     for (int i = 0; i < player1.player.size() - 1; i++) {
-      for (int j = 0; j < player1.player.size(); j++) {
+      for (int j = i + 1; j < player1.player.size(); j++) {
         if (player1.player.get(i).getValue().equals(player1.player.get(j).getValue())) {
-          temp.add
+          temp.add("Pair");
         }
 //        else if () {
 //          combo = "Two pairs";
