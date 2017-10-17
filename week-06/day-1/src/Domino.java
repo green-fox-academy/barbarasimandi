@@ -19,11 +19,15 @@ public class Domino implements Comparable<Domino> {
     return getValues()[1];
   }
 
+
   public int compareTo(Domino otherDomino) {
 
-    return Comparator.comparingInt(Domino::getFirstNumber)
-        .thenComparingInt(Domino::getSecondNumber)
-        .compare(this, otherDomino);
+    if (this.getFirstNumber() != otherDomino.getFirstNumber()) {
+      return this.getFirstNumber() - otherDomino.getFirstNumber();
+    }
+    else {
+      return this.getSecondNumber() - otherDomino.getSecondNumber();
+    }
   }
 
   @Override
