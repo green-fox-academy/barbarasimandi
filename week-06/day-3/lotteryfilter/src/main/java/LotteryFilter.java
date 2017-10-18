@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -11,41 +12,34 @@ import com.opencsv.*;
 public class LotteryFilter {
 
   public static void main(String[] args) {
-
+    argumentHandler(args);
   }
 
-  public void argumentHandler(String[] input) {
+  public static void argumentHandler(String[] input) {
+
     OptionParser parser = new OptionParser();
-    parser.accepts("y");
+    OptionSet options = parser.parse(input);
+
+    parser.accepts("y")/*.withRequiredArg()*/;
     parser.accepts("f");
     parser.accepts("o");
 
-    parser.accepts("f").withRequiredArg();
-    OptionSet options = parser.parse(input);
-
     if (options.has("y")) {
-      //readAndWrite();
-    }
 
-  }
+      try {
+        CSVReader reader = new CSVReader(new FileReader("C:/greenfox/barbarasimandi/week-06/day-3/lotteryfilter/src/assets/otos.csv"));
+        List<String[]> lines = reader.readAll();
 
-  public void readAndWrite(String source, String output) {
+        List<String[]> linesToWrite = new ArrayList<>();
+        linesToWrite.addAll(lines);
 
-    source = "C:/greenfox/barbarasimandi/week-06/lotteryfilter/src/assets/otos.csv";
-    output = "C:/greenfox/barbarasimandi/week-06/lotteryfilter/src/assets/output.csv";
+        CSVWriter writer = new CSVWriter(new FileWriter("C:/greenfox/barbarasimandi/week-06/day-3/lotteryfilter/src/assets/output.csv"));
+        writer.writeAll(linesToWrite);
+        writer.close();
 
-    CSVReader reader = null;
-
-    try {
-      reader = new CSVReader(new FileReader(source));
-      List<String[]> lines = reader.readAll();
-
-      CSVWriter writer = new CSVWriter(new FileWriter(output));
-      writer.writeAll(lines);
-      writer.close();
-
-    } catch (IOException e) {
-      e.printStackTrace();
+      } catch (Exception e) {
+        System.out.println("Nope");
+      }
     }
   }
 }
