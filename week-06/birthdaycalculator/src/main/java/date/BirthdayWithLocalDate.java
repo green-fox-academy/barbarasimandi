@@ -28,13 +28,22 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
   @Override
   public int calculateAgeInYears(LocalDate birthday) {
     // TODO - return how many years age the input date 'birthday' was
-    return 0;
+    return LocalDate.now().getYear() - birthday.getYear();
   }
 
   @Override
   public int calculateDaysToNextAnniversary(LocalDate date) {
     // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
-    return 0;
+    LocalDate now = LocalDate.now();
+    if (date.getDayOfYear() > now.getDayOfYear()) {
+      return date.getDayOfYear() - now.getDayOfYear();
+    }
+    else if (date.getDayOfYear() == now.getDayOfYear()) {
+      return 0;
+    }
+    else {
+      return LocalDate.of(now.getDayOfYear(), 12,31).getDayOfYear() - now.getDayOfYear() + date.getDayOfYear();
+    }
   }
 
   public static void main(String[] args) {
