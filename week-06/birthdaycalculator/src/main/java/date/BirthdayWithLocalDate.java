@@ -16,13 +16,18 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
   @Override
   public String printMonthAndDay(LocalDate date) {
     // TODO - return the date formatted: month & day (MM. dd.)
-    return date.getMonth().toString() + " " + date.getDayOfYear();
+    return date.getMonthValue() + ". " + date.getDayOfMonth() + ".";
   }
 
   @Override
   public boolean isAnniversaryToday(LocalDate date) {
     // TODO - return with true if today is the same month+day as date
-    return false;
+    if (date.toString().equals(LocalDate.now())) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   @Override
