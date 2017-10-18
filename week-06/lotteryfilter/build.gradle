@@ -11,10 +11,12 @@ repositories {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'date.BirthdayWithLocalDate'
+        attributes 'Main-Class': "LotteryFilter.java"
     }
 }
 
 dependencies {
+    compile "net.sf.jopt-simple:jopt-simple"
+    compile "com.opencsv:opencsv"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
