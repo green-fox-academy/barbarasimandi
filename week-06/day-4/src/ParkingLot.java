@@ -14,7 +14,7 @@ public class ParkingLot {
   }
 
   public void printParkingLot() {
-    for (Car car: parkingLot) {
+    for (Car car : parkingLot) {
       System.out.println(car);
     }
   }
@@ -28,12 +28,11 @@ public class ParkingLot {
       if (carMap.containsKey(carType)) {
         int counter = carMap.get(carType);
         carMap.put(carType, ++counter);
-      }
-      else {
+      } else {
         carMap.put(carType, 1);
       }
     }
-    for (Map.Entry car: carMap.entrySet()) {
+    for (Map.Entry car : carMap.entrySet()) {
       System.out.println(car);
     }
   }
@@ -47,17 +46,34 @@ public class ParkingLot {
       if (carMap.containsKey(carColor)) {
         int counter = carMap.get(carColor);
         carMap.put(carColor, ++counter);
-      }
-      else {
+      } else {
         carMap.put(carColor, 1);
       }
     }
-    for (Map.Entry car: carMap.entrySet()) {
+    for (Map.Entry car : carMap.entrySet()) {
       System.out.println(car);
     }
   }
 
-  public void printMostFrequentlyOccuring() {
+  public void printMostFrequentlyOccurring() {
 
+    HashMap<String, Integer> carMap = new HashMap<>();
+
+    for (int i = 0; i < parkingLot.size(); i++) {
+
+      String carTypeAndColor = parkingLot.get(i).type + " " + parkingLot.get(i).color;
+
+      if (carMap.containsKey(carTypeAndColor)) {
+        int counter = carMap.get(carTypeAndColor);
+        carMap.put(carTypeAndColor, ++counter);
+
+      }
+      else {
+        carMap.put(carTypeAndColor, 1);
+      }
+    }
+    for (Map.Entry car : carMap.entrySet()) {
+      System.out.println(car);
+    }
   }
 }
