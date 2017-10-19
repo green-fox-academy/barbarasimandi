@@ -8,16 +8,17 @@ public class ParkingLot {
 
   public ParkingLot() {
     parkingLot = new ArrayList<>();
+
     for (int i = 0; i < 255; i++) {
       parkingLot.add(new Car());
     }
   }
 
   public void countSameTypes() {
-    HashMap<String, Integer> carMap = new HashMap<>();
+    HashMap<Car.Type, Integer> carMap = new HashMap<>();
 
     for (int i = 0; i < parkingLot.size(); i++) {
-      String carType = parkingLot.get(i).type;
+      Car.Type carType = parkingLot.get(i).type;
 
       if (carMap.containsKey(carType)) {
         int counter = carMap.get(carType);
@@ -32,10 +33,10 @@ public class ParkingLot {
   }
 
   public void countSameColor() {
-    HashMap<String, Integer> carMap = new HashMap<>();
+    HashMap<Car.Color, Integer> carMap = new HashMap<>();
 
     for (int i = 0; i < parkingLot.size(); i++) {
-      String carColor = parkingLot.get(i).color;
+      Car.Color carColor = parkingLot.get(i).color;
 
       if (carMap.containsKey(carColor)) {
         int counter = carMap.get(carColor);
@@ -55,7 +56,7 @@ public class ParkingLot {
 
     for (int i = 0; i < parkingLot.size(); i++) {
 
-      String carTypeAndColor = parkingLot.get(i).color + " " + parkingLot.get(i).type;
+      String carTypeAndColor = parkingLot.get(i).color.toString() + " " + parkingLot.get(i).type.toString();
 
       if (carMap.containsKey(carTypeAndColor)) {
         int counter = carMap.get(carTypeAndColor);
