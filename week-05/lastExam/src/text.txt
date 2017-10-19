@@ -8,3 +8,6 @@ kutya
 dino
 dino
 dino
+dino
+dino
+dino

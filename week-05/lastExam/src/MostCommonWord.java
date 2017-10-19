@@ -7,8 +7,8 @@ public class MostCommonWord {
     // count all words in the given file and print the most common
     // ("cat", "CAT", "cat," "cat." are different words )
 
-    ArgsInspect argsInspectObject = new ArgsInspect();
-    argsInspectObject.inspectArgs(args);
+    ListMethods listing = new ListMethods();
+    listing.fillMap();
 
   }
 }
