@@ -13,12 +13,6 @@ public class ParkingLot {
     }
   }
 
-  public void printParkingLot() {
-    for (Car car : parkingLot) {
-      System.out.println(car);
-    }
-  }
-
   public void countSameTypes() {
     HashMap<String, Integer> carMap = new HashMap<>();
 
@@ -61,7 +55,7 @@ public class ParkingLot {
 
     for (int i = 0; i < parkingLot.size(); i++) {
 
-      String carTypeAndColor = parkingLot.get(i).type + " " + parkingLot.get(i).color;
+      String carTypeAndColor = parkingLot.get(i).color + " " + parkingLot.get(i).type;
 
       if (carMap.containsKey(carTypeAndColor)) {
         int counter = carMap.get(carTypeAndColor);
@@ -72,8 +66,15 @@ public class ParkingLot {
         carMap.put(carTypeAndColor, 1);
       }
     }
-    for (Map.Entry car : carMap.entrySet()) {
-      System.out.println(car);
+
+    Map.Entry<String, Integer> mostOccurringCar = null;
+
+    for (Map.Entry<String, Integer> car : carMap.entrySet()) {
+
+      if ((mostOccurringCar == null) || car.getValue() > mostOccurringCar.getValue()) {
+        mostOccurringCar = car;
+      }
     }
+    System.out.println("Most frequently occurring: " + mostOccurringCar.getKey());
   }
 }
