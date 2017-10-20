@@ -1,17 +1,18 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Task {
 
-  private String name;
+  public String name;
   private int id;
   private static int taskCounter;
-  private LocalDate createdAt;
-  private LocalDate completedAt;
+  private LocalDateTime createdAt;
+  private LocalDateTime completedAt;
+
 
   public Task(String name) {
     this.name = name;
     id = getNextId();
-    createdAt = LocalDate.now();
+    createdAt = LocalDateTime.now();
     completedAt = null;
   }
 
@@ -20,20 +21,31 @@ public class Task {
     return taskCounter;
   }
 
-  public LocalDate getCreatedAt() {
+  public LocalDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public LocalDate complete() {
-    return completedAt = LocalDate.now();
+  public LocalDateTime complete() {
+    return completedAt = LocalDateTime.now();
+  }
+
+  public String isItCompleted() {
+    if (completedAt != null && createdAt.isBefore(completedAt)) {
+      return name + ", completed at: ";
+    } else
+      return name + ", not completed yet";
+  }
+
+  public int complitionTime() {
+    return completedAt.getDayOfYear() - createdAt.getDayOfYear();
   }
 
   @Override
   public String toString() {
     if (completedAt == null) {
-      return id + ": " + createdAt.toString()+ ", " + name + ", completion: not completed yet";
+      return id + ": " + createdAt.toString()+ ", " + isItCompleted();
     } else {
-      return id + ": " + createdAt.toString()+ ", " + name + ", completion: " + completedAt.toString();
+      return id + ": " + createdAt.toString()+ ", " + isItCompleted() + completedAt.toString() + " It took " + complitionTime() + " days to finish this excercise";
     }
   }
 }
