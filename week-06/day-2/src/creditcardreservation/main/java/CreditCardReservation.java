@@ -32,13 +32,13 @@ public class CreditCardReservation implements CreditCardy, Reservationy {
   public String getCodeAccount() {
     return card.getCodeAccount();
   }
-  
+
   public int cumeSumCVV(String codeAccount) {
     return card.cumeSumCVV(card.getCodeAccount());
   }
 
   public String toString() {
-    return String.format("Booking#%s %s for %s Name=ABC%s CC#=%s CVV=%d %s", res.counter, getCodeBooking(), getDowBooking(), getNameCardholder(), getCodeAccount(), getSumCVV(),
+    return String.format("Booking#%s %s for %s paid by Name=ABC%s CC#=%s CVV=%d %s", res.counter, getCodeBooking(), getDowBooking(), getNameCardholder(), getCodeAccount(), getSumCVV(),
         card.printWhetherValidated());
   }
 }
