@@ -10,11 +10,7 @@ public class ReservationApp {
     Reservation res5 = new Reservation();
     Reservation res6 = new Reservation();
 
-    System.out.println(res1);
-    System.out.println(res2);
-    System.out.println(res3);
-    System.out.println(res4);
-    System.out.println(res5);
-    System.out.println(res6);
+    System.out.println(res1 + "\n" +  res2 + "\n" + res3 + "\n" +  res4 + "\n" + res5 + "\n" +  res6);
+
   }
 }

@@ -1,18 +1,19 @@
 package reservation.app.main;
 
-import java.util.ArrayList;
-
 public class Reservation implements Reservationy {
 
   static String[] LETTERSANDNUMERS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
   String reservationCode;
   static String[] DOW = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
   String reservationDay;
+  private int counter;
+  private static int numberToIncrease = 0;
 
   public Reservation() {
     this.reservationDay = getDowBooking();
     this.reservationCode = getCodeBooking();
-    System.out.println("Booking# " + reservationCode + " for " + reservationDay);
+    counter = ++numberToIncrease;
+
   }
 
   public String getDowBooking() {
@@ -28,5 +29,10 @@ public class Reservation implements Reservationy {
       eight.append(LETTERSANDNUMERS[random]);
     }
     return eight.toString();
+  }
+
+  @Override
+  public String toString() {
+    return "Booking#" + counter + " " + reservationCode + " for " + reservationDay;
   }
 }
