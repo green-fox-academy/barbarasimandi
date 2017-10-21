@@ -52,7 +52,7 @@ public class ParkingLot {
 
   public void printMostFrequentlyOccurring() {
 
-    HashMap<String, Integer> carMap = new HashMap<>();
+    Map<String, Integer> carMap = new HashMap<>();
 
     for (int i = 0; i < parkingLot.size(); i++) {
 
