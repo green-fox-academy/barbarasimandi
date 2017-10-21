@@ -4,23 +4,17 @@ import java.util.ArrayList;
 
 public class CreditCard implements CreditCardy {
 
-  int sumCVV;
-  String nameCardholder;
-  String codeAccount;
-  int cumeCodeAccount;
-  private static int increasingNumber = 0;
   int number;
+  String codeAccount;
+  private static int increasingNumber = 0;
 
   public CreditCard() {
-    sumCVV = getSumCVV();
-    nameCardholder = getNameCardholder();
     codeAccount = getCodeAccount();
-    cumeCodeAccount = getSumCVV();
     number = increasingNumber++;
   }
 
   public int getSumCVV() {
-    return 0;
+    return cumeSumCVV(getCodeAccount());
   }
 
   public String getNameCardholder() {
@@ -37,7 +31,6 @@ public class CreditCard implements CreditCardy {
   }
 
   public int cumeSumCVV(String codeAccount) {
-    codeAccount = getCodeAccount();
     int sum = 0;
     for (int i = 0; i < codeAccount.length(); i++) {
       int num = Integer.parseInt(String.valueOf(codeAccount.charAt(i)));
@@ -47,7 +40,6 @@ public class CreditCard implements CreditCardy {
   }
 
   public boolean check(String codeAccount) {
-    codeAccount = getCodeAccount();
     ArrayList<Integer> digits = new ArrayList<>();
     int sum = 0;
     for (int i = 0; i < codeAccount.length(); i++) {
@@ -56,8 +48,10 @@ public class CreditCard implements CreditCardy {
     int length = digits.size();
 
     for (int i = 0; i < length; i++) {
+
       // get digits in reverse order
       int digit = digits.get(length - i - 1);
+
       // every 2nd number multiply with 2
       if (i % 2 == 1) {
         digit *= 2;
@@ -72,6 +66,6 @@ public class CreditCard implements CreditCardy {
   }
 
   public String toString() {
-    return String.format("Name=ABC" + getNameCardholder() + " CC#=" + getCodeAccount() + " CVV=" + cumeSumCVV(codeAccount) + " " + printWhetherValidated());
+    return String.format("Name=ABC%s CC#=%s CVV=%d %s", getNameCardholder(), getCodeAccount(), getSumCVV(), printWhetherValidated());
   }
 }
