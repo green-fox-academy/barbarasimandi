@@ -1,76 +1,52 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
 
+// this class is for using joptsimple to read arguments.
 public class LotteryFilter {
 
   private OptionParser parser;
   private OptionSet options;
-  private String fileNameToContinue = "C:/greenfox/barbarasimandi/week-06/day-3/lotteryfilter/src/assets/";
-  private String inputYear, inputFileName, outputFileName;
+  private FileMethods fileMethods;
+  private int year;
+  private String inputFilePath, outputFilePath;
 
   public LotteryFilter(String[] input) {
     parser = new OptionParser();
-    possibleArguments();
-    options = parser.parse(input);
-  }
-
-  // for setting the possible arguments
-  public void possibleArguments() {
     parser.accepts("y").withRequiredArg();
     parser.accepts("f").withRequiredArg();
     parser.accepts("o").withRequiredArg();
+    options = parser.parse(input);
+    fileMethods = new FileMethods();
   }
 
-
   public void argumentHandler() {
+    year = Integer.parseInt(options.valueOf("y").toString());
 
-    if (options.has("y")) {
-
-    inputYear = options.valueOf("y").toString();
-    inputFileName = options.valueOf("f").toString();
-    outputFileName = options.valueOf("o").toString();
-
-      try {
-      CSVReader reader = new CSVReader(new FileReader(fileNameToContinue + inputFileName));
-
-        if (options.has("f")) {
-
-          List<String[]> lines = reader.readAll();
-          List<String[]> linesToWrite = new ArrayList<>();
-          String[] no = new String[]{"There is no such year in the input file."};
-
-          for (int i = 0; i < lines.size(); i++) {
-            String[] line = lines.get(i);
-
-            if (options.has("f") && line[0].startsWith(inputYear)) {
-              linesToWrite.add(line);
-            }
-            // not working yet. My goal is to write "There is no such year in the input file."
-            else {
-              linesToWrite.add(no);
-            }
-
-            if (options.has("f") && line[0].startsWith(inputYear) && options.has("o")) {
-
-              CSVWriter writer = new CSVWriter(new FileWriter(fileNameToContinue + outputFileName));
-
-              writer.writeAll(linesToWrite);
-              writer.close();
-            }
-          }
-        }
-      } catch (IOException e) {
-        System.out.println("Unable to read file.");
+    // writing to file if the app is run with -y and a year
+    if (options.has("y") && !options.has("f") && !options.has("o")) {
+      fileMethods.read();
+      if (options.valueOf("y") == null) {
+        //this throws an Exception, (OptionMissingRequiredArgumentException) which is private in joptsimple, therefore I can't handle it.
+      }
+      else if (options.valueOf("y") != null) {
+        fileMethods.writeResultsByYearToStandardOutput(year);
       }
     }
+
+    // writing to file from a specified input path to a standard output path, with filtered years
+    else if (options.has("y") && options.has("f") && !options.has("o")) {
+      inputFilePath = options.valueOf("f").toString();
+      fileMethods.readFromGivenFile(inputFilePath);
+      fileMethods.writeResultsByYearToStandardOutput(year);
+    }
+
+    // writing to file from a specified input path to a specified output path, with filtered years
+    else if(options.has("y") && options.has("f") && options.has("o")) {
+      inputFilePath = options.valueOf("f").toString();
+      outputFilePath = options.valueOf("o").toString();
+      fileMethods.readFromGivenFile(inputFilePath);
+      fileMethods.writeResultsByYear(outputFilePath, year);
+    }
+
   }
 }
