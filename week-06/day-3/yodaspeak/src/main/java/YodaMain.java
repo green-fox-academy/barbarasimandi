@@ -17,8 +17,7 @@ public class YodaMain {
 
     YodaService yodaService = retrofit.create(YodaService.class);
 
-    Scanner sc = new Scanner(System.in);
-    String toBeTranslated = sc.nextLine();
+    String toBeTranslated = "I hope I'll understand API soon";
 
     Call<ResponseBody> answer = yodaService.getAnswer(toBeTranslated);
 
