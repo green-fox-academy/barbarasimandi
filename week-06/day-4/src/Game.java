@@ -21,11 +21,13 @@ public class Game {
 
     int playerScore = 0;
     int rounds = 0;
+    boolean yes = Answer.valueOf(getNextStep()).equals(Answer.yes);
+    boolean no = Answer.valueOf(getNextStep()).equals(Answer.no);
 
-    while (playerScore < 21 || Answer.valueOf(getNextStep()).equals(Answer.yes)) {
+    while (playerScore < 21 || yes) {
       playerScore += d.pullRandom().getValue();
       rounds++;
-      if (rounds > 2 || playerScore > 21 || Answer.valueOf(getNextStep()).equals(Answer.no)) {
+      if (rounds > 2 || playerScore > 21 || no) {
         break;
       }
     }
