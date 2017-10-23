@@ -19,6 +19,6 @@ public class SplitString {
     } catch (StringIndexOutOfBoundsException e) {
       System.out.println("the given index is greater than the word to-be-split's length");
     }
-    return split;
+    return split != null ? split : new String[]{"try a smaller index"};
   }
 }
