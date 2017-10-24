@@ -15,6 +15,8 @@ public class HelloToAllTheWorldController {
     Hello hello = new Hello();
 
     model2.addAttribute("hello", String.format("%s", hello.getActualHello()));
+    model2.addAttribute("color", hello.getActualColor());
+    model2.addAttribute("fontSize", hello.getActualFontSize());
     model2.addAttribute("name2", String.format("%s ", yourName2));
     return "greeting";
   }
