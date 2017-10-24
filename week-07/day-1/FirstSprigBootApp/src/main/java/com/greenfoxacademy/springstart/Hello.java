@@ -8,16 +8,13 @@ public class Hello {
       "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
       "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-  static int random;
-  static String actualHello;
+  String actualHello;
 
   public Hello() {
-    random = (int)(Math.random()*hellos.length);
-    actualHello = hellos[random];
+    actualHello = hellos[(int)(Math.random()*hellos.length)];
   }
 
-  @Override
-  public String toString() {
+  public String getActualHello() {
     return actualHello;
   }
 }
