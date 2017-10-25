@@ -35,10 +35,12 @@ public class BankAccountController {
   @RequestMapping(value = "/accounts")
   public String fillCharacter(Model model) {
   bank.add(simbAccount);
+  mufasAccount.promote();
   bank.add(mufasAccount);
   bank.add(pumbAccount);
   bank.add(timonAccount);
   bank.add(rafikiAccount);
+  zordonAccount.makeBadGuy();
   bank.add(zordonAccount);
   model.addAttribute("bankAccounts", bank);
     return "characters";

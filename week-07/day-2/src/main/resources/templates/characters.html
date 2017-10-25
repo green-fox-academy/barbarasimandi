@@ -13,12 +13,16 @@
     <th th:text="'BALANCE'"></th>
     <th th:text="'ANIMAL TYPE'"></th>
     <th th:text="'INDEX'"></th>
+    <th th:text="'KINGSTATUS'"></th>
+    <th th:text="'GOOD OR BAD GUY'"></th>
   </tr>
-<tr th:each="bankAccount: ${bankAccounts}">
+<tr th:each="bankAccount: ${bankAccounts}" th:style="${bankAccount.isKing()} ? 'color:orange'">
   <td th:text="${bankAccount.getName()}" ></td>
   <td th:text="${bankAccount.getBalance()}" ></td>
   <td th:text="${bankAccount.getAnimalType()}" ></td>
   <td th:text="${bankAccountStat.index + 1}" ></td>
+  <td th:text="${bankAccount.isKing()} ? 'king' : 'not king'"></td>
+  <td th:text="${bankAccount.isGoodGuy()} ? 'good guy' : 'bad guy'"></td>
 </tr>
 </table>
 </body>
