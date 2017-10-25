@@ -54,4 +54,12 @@ public class BankAccount {
   public boolean makeBadGuy() {
     return goodGuy = false;
   }
+
+  public String balanceToString() {
+    return String.format("%.2f %s", balance, "Zebra");
+  }
+
+  public double raiseWithTen() {
+    return balance += 10;
+  }
 }

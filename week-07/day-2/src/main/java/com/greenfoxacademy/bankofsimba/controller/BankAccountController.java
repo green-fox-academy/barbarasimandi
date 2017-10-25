@@ -49,4 +49,10 @@ public class BankAccountController {
     model.addAttribute("bankAccounts", bank);
   return "characters";
   }
+
+//  @RequestMapping(value = "/accounts")
+//  public String raiseBalance(Model model) {
+//    model.addAttribute("bank", bank);
+//    return "raise";
+//  }
 }

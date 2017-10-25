@@ -14,19 +14,19 @@
     <th th:text="'ANIMAL TYPE'" th:style="'font-size:40px'"></th>
     <th th:text="'INDEX'" th:style="'font-size:40px'"></th>
     <th th:text="'KINGSTATUS'" th:style="'font-size:40px'"></th>
-    <th th:text="'GOOD OR BAD GUY'" th:style="'font-size:40px'"></th>
+    <th th:text="'GOOD OR BAD'" th:style="'font-size:40px'"></th>
   </tr>
 <tr th:each="bankAccount: ${bankAccounts}" th:style="${bankAccount.isKing()} ? 'color:orange'">
   <td th:text="${bankAccount.getName()}" th:style="'font-size:20px'"></td>
-  <td th:text="${bankAccount.getBalance()}" th:style="'font-size:20px'"></td>
+  <td th:text="${bankAccount.balanceToString()}" th:style="'font-size:20px'"></td>
   <td th:text="${bankAccount.getAnimalType()}" th:style="'font-size:20px'"></td>
-  <td th:text="${bankAccountStat.index + 1}" th:style="'font-size:20px'"></td>
-  <td th:text="${bankAccount.isKing()} ? 'king' : 'not king'" th:style="'font-size:20px'"></td>
-  <td th:text="${bankAccount.isGoodGuy()} ? 'good guy' : 'bad guy'" th:style="'font-size:20px'"></td>
+  <td th:text="${bankAccountStat.index + 1}" th:style="'font-size:20px; text-align:center'"></td>
+  <td th:text="${bankAccount.isKing()} ? 'king' : 'not king'" th:style="'font-size:20px; text-align:center'"></td>
+  <td th:text="${bankAccount.isGoodGuy()} ? 'good guy' : 'bad guy'" th:style="'font-size:20px; text-align:center'"></td>
 </tr>
 </table>
-<form th:action="@{/raise}" th:method="POST">
-  <button type="submit" class="btn btn-default"></button>
+<form action="#" th:action="@{/raise}" th:each="account : ${bankAccounts}" th:object="${account}" method="POST">
+  <button th:text="'Raise the balance'" type="submit" th:formaction="${account.raiseWithTen()}"></button>
 </form>
 </body>
 </body>
