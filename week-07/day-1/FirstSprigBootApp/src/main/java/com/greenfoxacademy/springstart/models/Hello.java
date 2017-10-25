@@ -1,4 +1,4 @@
-package com.greenfoxacademy.springstart;
+package com.greenfoxacademy.springstart.models;
 
 import java.awt.Color;
 import java.util.Arrays;
