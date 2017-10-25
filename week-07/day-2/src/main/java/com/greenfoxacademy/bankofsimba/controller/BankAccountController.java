@@ -37,7 +37,7 @@ public class BankAccountController {
   }
 
   @RequestMapping(value = "/accounts")
-  public String fillCharacter(@ModelAttribute BankAccount bankAccount, Model model) {
+  public String fillCharacter(Model model) {
     bank.add(simbAccount);
     mufasAccount.promote();
     bank.add(mufasAccount);
