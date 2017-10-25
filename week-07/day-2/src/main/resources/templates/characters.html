@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thymeleaf Exercise #</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <meta charset="utf-8" />
+</head>
+<body>
+<body>
+<table>
+  <tr>
+    <th th:text="'NAME'"></th>
+    <th th:text="'BALANCE'"></th>
+    <th th:text="'ANIMAL TYPE'"></th>
+    <th th:text="'INDEX'"></th>
+  </tr>
+<tr th:each="bankAccount: ${bankAccounts}">
+  <td th:text="${bankAccount.getName()}" ></td>
+  <td th:text="${bankAccount.getBalance()}" ></td>
+  <td th:text="${bankAccount.getAnimalType()}" ></td>
+  <td th:text="${bankAccountStat.index + 1}" ></td>
+</tr>
+</table>
+</body>
+</body>
+</html>
