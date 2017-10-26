@@ -5,16 +5,18 @@ import com.message.service.service.MessageService;
 import com.message.service.service.TwitterService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class MessageConfiguration {
 
   @Bean
+  @Primary
   public MessageService emailMessage(){
     return new EmailService();
   }
 
-
+  @Bean
   public MessageService twitterMessage(){
     return new TwitterService();
   }
