@@ -1,6 +1,6 @@
-package com.greenfox.error.model.config;
+package com.greenfox.error.config;
 
-import com.greenfox.error.model.model.User;
+import com.greenfox.error.model.User;
 
 import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
