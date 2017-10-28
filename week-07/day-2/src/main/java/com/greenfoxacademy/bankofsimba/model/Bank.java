@@ -2,7 +2,10 @@ package com.greenfoxacademy.bankofsimba.model;
 
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class Bank {
 
 
@@ -30,11 +33,12 @@ public class Bank {
     } return bankAccount;
   }
 
-  public double raise(String inputName) {
-    for (int i = 0; i < bank.size(); i++) {
-      if (bank.get(i).name.equals(inputName)) {
-        bank.get(i).raiseWithTen();
-      }
-    } return this.getByName(inputName).getBalance();
+  public void raise(BankAccount bankAccount) {
+    bankAccount.raiseWithTen();
+  }
+
+  @Bean
+  public BankAccount newAcc() {
+    return new BankAccount();
   }
 }

@@ -2,6 +2,7 @@ package com.greenfoxacademy.bankofsimba.controller;
 
 import com.greenfoxacademy.bankofsimba.model.Bank;
 import com.greenfoxacademy.bankofsimba.model.BankAccount;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BankAccountController {
 
-  Bank bank = new Bank();
+  @Autowired
+  Bank bank;
 
   @RequestMapping(value = "/one")
   public String showAccount(Model model) {
@@ -31,13 +33,14 @@ public class BankAccountController {
 
   @GetMapping(value = "/accounts")
   public String fillCharacter(Model model) {
+    model.addAttribute("newBalance", bank.newAcc());
     model.addAttribute("bankAccounts", bank.getAccounts());
   return "accounts";
   }
 
   @PostMapping(value = "/raise")
-  public String raiseBalance(@ModelAttribute Bank bank, String name, Model model) {
-    model.addAttribute("balance", bank.raise(name));
+  public String raiseBalance(@ModelAttribute BankAccount bankAccount) {
+   bank.raise(bankAccount);
     return "redirect:/accounts";
   }
 }

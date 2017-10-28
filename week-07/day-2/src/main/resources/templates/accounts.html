@@ -23,8 +23,8 @@
   <td th:text="${bankAccountStat.index + 1}" th:style="'font-size:20px; text-align:center'"></td>
   <td th:text="${bankAccount.isKing()} ? 'king' : 'not king'" th:style="'font-size:20px; text-align:center'"></td>
   <td th:text="${bankAccount.isGoodGuy()} ? 'good guy' : 'bad guy'" th:style="'font-size:20px; text-align:center'"></td>
-  <td><form action="#" th:action="@{/raise}" th:object="${bankaccounts}" method="POST">
-    <input name="name" type="hidden" th:value="${balance}"/>
+  <td><form action="#" th:action="@{/raise}" th:object="${newBalance}" method="POST">
+    <input name="name" type="hidden"/>
     <button th:text="'Raise balance'" type="submit"></button>
   </form></td>
 </tr>
