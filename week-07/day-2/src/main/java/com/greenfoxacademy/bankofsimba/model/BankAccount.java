@@ -7,12 +7,15 @@ public class BankAccount {
   boolean king;
   boolean goodGuy;
 
-  public BankAccount(String name, double balance, String animalType) {
+  public BankAccount(String name, double balance, String animalType, boolean king, boolean goodGuy) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
-    king = false;
-    goodGuy = true;
+    this.king = king;
+    this.goodGuy = goodGuy;
+  }
+
+  public BankAccount() {
   }
 
   public String getName() {
