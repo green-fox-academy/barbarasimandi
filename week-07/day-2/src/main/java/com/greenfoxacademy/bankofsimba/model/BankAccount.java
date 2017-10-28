@@ -1,13 +1,15 @@
 package com.greenfoxacademy.bankofsimba.model;
 
 public class BankAccount {
-  String name;
-  double balance;
-  String animalType;
-  boolean king;
-  boolean goodGuy;
 
-  public BankAccount(String name, double balance, String animalType, boolean king, boolean goodGuy) {
+  public String name;
+  public double balance;
+  public String animalType;
+  public boolean king;
+  public boolean goodGuy;
+
+  public BankAccount(String name, double balance, String animalType, boolean king,
+      boolean goodGuy) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
@@ -62,7 +64,11 @@ public class BankAccount {
     return String.format("%.2f %s", balance, "Zebra");
   }
 
-  public double raiseWithTen() {
-    return balance += 10;
+  public void raiseWithTen() {
+    if (isKing()) {
+      setBalance((int) (getBalance() + 100));
+    } else {
+      setBalance((int) (getBalance() + 10));
+    }
   }
 }

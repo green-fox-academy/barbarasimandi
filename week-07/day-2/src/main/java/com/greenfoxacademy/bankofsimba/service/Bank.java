@@ -1,5 +1,6 @@
-package com.greenfoxacademy.bankofsimba.model;
+package com.greenfoxacademy.bankofsimba.service;
 
+import com.greenfoxacademy.bankofsimba.model.BankAccount;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
