@@ -1,6 +1,6 @@
 package com.greenfoxacademy.bankofsimba.controller;
 
-import com.greenfoxacademy.bankofsimba.service.Bank;
+import com.greenfoxacademy.bankofsimba.model.Bank;
 import com.greenfoxacademy.bankofsimba.model.BankAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,14 +33,14 @@ public class BankAccountController {
 
   @GetMapping(value = "/accounts")
   public String fillCharacter(Model model) {
-    model.addAttribute("bankAccounts", bank.getAccounts());
+    model.addAttribute("bankAccounts", bank.getBank());
     model.addAttribute("new_balance", new BankAccount());
     return "accounts";
   }
 
   @PostMapping(value = "/accounts")
   public String raiseBalance(@ModelAttribute BankAccount bankAccount) {
-    for (BankAccount account : bank.getAccounts()) {
+    for (BankAccount account : bank.getBank()) {
       if (account.getName().equals(bankAccount.getName())) {
         account.raiseWithTen();
       }
@@ -48,7 +48,7 @@ public class BankAccountController {
     return "redirect:/accounts";
   }
 
-  @PostMapping(value = "/new")
+  @PostMapping(value = "/new_balance")
   public String addNew(@ModelAttribute BankAccount bankAccount) {
     bank.addAcc(bankAccount);
     return "redirect:/accounts";

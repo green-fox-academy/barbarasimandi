@@ -24,20 +24,20 @@ public class BankAccount {
     return name;
   }
 
-  public double getBalance() {
-    return balance;
-  }
-
-  public String getAnimalType() {
-    return animalType;
-  }
-
   public void setName(String name) {
     this.name = name;
   }
 
+  public double getBalance() {
+    return balance;
+  }
+
   public void setBalance(double balance) {
     this.balance = balance;
+  }
+
+  public String getAnimalType() {
+    return animalType;
   }
 
   public void setAnimalType(String animalType) {
@@ -48,16 +48,16 @@ public class BankAccount {
     return king;
   }
 
-  public boolean promote() {
-    return king = true;
+  public void setKing(boolean king) {
+    this.king = king;
   }
 
   public boolean isGoodGuy() {
     return goodGuy;
   }
 
-  public boolean makeBadGuy() {
-    return goodGuy = false;
+  public void setGoodGuy(boolean goodGuy) {
+    this.goodGuy = goodGuy;
   }
 
   public String balanceToString() {
