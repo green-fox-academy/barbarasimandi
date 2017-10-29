@@ -12,7 +12,7 @@
     <th th:text="'NAME'" th:style="'font-size:40px'"></th>
     <th th:text="'BALANCE'" th:style="'font-size:40px'"></th>
     <th th:text="'ANIMAL TYPE'" th:style="'font-size:40px'"></th>
-    <th th:text="'INDEX'" th:style="'font-size:40px'"></th>
+    <!--<th th:text="'INDEX'" th:style="'font-size:40px'"></th>-->
     <th th:text="'KINGSTATUS'" th:style="'font-size:40px'"></th>
     <th th:text="'GOOD OR BAD'" th:style="'font-size:40px'"></th>
   </tr>
@@ -20,7 +20,7 @@
   <td th:text="${bankAccount.getName()}" th:style="'font-size:20px'"></td>
   <td th:text="${bankAccount.balanceToString()}" th:style="'font-size:20px'"></td>
   <td th:text="${bankAccount.getAnimalType()}" th:style="'font-size:20px'"></td>
-  <td th:text="${bankAccountStat.index + 1}" th:style="'font-size:20px; text-align:center'"></td>
+  <!--<td th:text="${bankAccountStat.index + 1}" th:style="'font-size:20px; text-align:center'"></td>-->
   <td th:text="${bankAccount.isKing()} ? 'king' : 'not king'" th:style="'font-size:20px; text-align:center'"></td>
   <td th:text="${bankAccount.isGoodGuy()} ? 'good guy' : 'bad guy'" th:style="'font-size:20px; text-align:center'"></td>
   <td> <form th:action="@{/accounts}" method="post">
@@ -28,6 +28,16 @@
     <button type="submit" th:text="'Raise balance'"></button>
   </form></td>
 </tr>
+  <tr>
+    <form th:action="@{/new}" th:object="${new_balance}" method="post">
+      <th><input type="text" th:field="*{name}" /> </th>
+      <th> <input type="text" th:field="*{balance}" /> </th>
+      <th><input type="text" th:field="*{animalType}" /> </th>
+      <th><input type="text" th:field="*{king}" /> </th>
+      <th><input type="text" th:field="*{goodGuy}" /> </th>
+      <th><input type="submit" value="Add new"/> </th>
+    </form>
+  </tr>
 </table>
 </body>
 </body>

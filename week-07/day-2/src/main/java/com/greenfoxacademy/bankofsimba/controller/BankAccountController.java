@@ -33,9 +33,9 @@ public class BankAccountController {
 
   @GetMapping(value = "/accounts")
   public String fillCharacter(Model model) {
-    model.addAttribute("newBalance", new BankAccount());
     model.addAttribute("bankAccounts", bank.getAccounts());
-  return "accounts";
+    model.addAttribute("new_balance", new BankAccount());
+    return "accounts";
   }
 
   @PostMapping(value = "/accounts")
@@ -45,6 +45,12 @@ public class BankAccountController {
         account.raiseWithTen();
       }
     }
+    return "redirect:/accounts";
+  }
+
+  @PostMapping(value = "/new")
+  public String addNew(@ModelAttribute BankAccount bankAccount) {
+    bank.addAcc(bankAccount);
     return "redirect:/accounts";
   }
 }

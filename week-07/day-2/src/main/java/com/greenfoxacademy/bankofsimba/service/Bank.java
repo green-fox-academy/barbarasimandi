@@ -42,4 +42,8 @@ public class Bank {
   public BankAccount newAcc() {
     return new BankAccount();
   }
+
+  public void addAcc(BankAccount bankAccount) {
+    bank.add(bankAccount);
+  }
 }
