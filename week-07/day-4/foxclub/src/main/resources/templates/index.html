@@ -7,11 +7,11 @@
 <body>
 <li><a href="http://www.google.com">Information</a></li>
 <img th:src="'greenfox.png'"/>
-<p>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks</p>
+<p th:object="${fox}" th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{getTrickNumber()} + ' tricks'"></p>
 <h1>Known tricks</h1>
-<ul>
-  <li>write HTML</li>
-  <li>code in Java</li>
+<p th:text="${fox.getTrickNumber()} == 0 ? 'He knows no tricks yet. Dummy.' : ''"></p>
+<ul th:each="trick: ${fox.listOfTricks}">
+  <li th:text="${trick.name}"></li>
 </ul>
 </body>
 </html>
