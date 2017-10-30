@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,8 +25,16 @@ public class MainController {
     return "index";
   }
 
-//  @GetMapping(value = "/info")
-//  public String showInfo(Model model) {
-//    model.addAttribute()
-//  }
+  @GetMapping(value = "/nutrition")
+  public String showInfo(Model model) {
+    model.addAttribute("feed", fox.getFood());
+    model.addAttribute("give_drink", fox.getDrink());
+    return "nutrition";
+  }
+
+  @PostMapping
+  public String showInfo(@ModelAttribute Fox fox) {
+    fox.feed();
+    return "reidrect:/nutrition";
+  }
 }
