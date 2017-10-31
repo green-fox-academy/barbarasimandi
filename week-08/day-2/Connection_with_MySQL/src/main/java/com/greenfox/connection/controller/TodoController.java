@@ -1,6 +1,6 @@
-package com.greenfox.todo.controller;
+package com.greenfox.connection.controller;
 
-import com.greenfox.todo.repository.TodoRepository;
+import com.greenfox.connection.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

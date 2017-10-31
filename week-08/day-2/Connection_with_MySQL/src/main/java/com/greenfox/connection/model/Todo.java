@@ -1,4 +1,4 @@
-package com.greenfox.todo.model;
+package com.greenfox.connection.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
