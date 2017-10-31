@@ -17,9 +17,11 @@
   <tr th:each="todo: ${todos}">
     <td th:text="${todo.id}" ></td>
     <td th:text="${todo.title}"></td>
-    <td th:text="${todo.isDone()} ? 'yes' : 'no'"></td>
-    <td th:text="${todo.isUrgent()} ? 'yes' : 'no'"></td>
+    <td th:text="${todo.isDone} ? 'yes' : 'no'"></td>
+    <td th:text="${todo.isUrgent} ? 'yes' : 'no'"></td>
+    <td><button>Delete</button></td>
   </tr>
 </table>
+<a th:href="@{/todo/list/addTodo/}">Add new Todo</a>
 </body>
 </html>
