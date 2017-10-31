@@ -2,7 +2,6 @@ package com.greenfox.todo;
 
 import com.greenfox.todo.model.Todo;
 import com.greenfox.todo.repository.TodoRepository;
-import javax.sql.rowset.CachedRowSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +20,8 @@ public class TodoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
+		todoRepository.save(new Todo("Feed the cat"));
+		todoRepository.save(new Todo("Feed the cat"));
 		todoRepository.save(new Todo("Feed the cat"));
 	}
 }
