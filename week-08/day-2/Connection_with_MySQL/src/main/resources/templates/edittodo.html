@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8"/>
-  <title>Add new todo</title>
+  <title>Edit todo</title>
 </head>
 <body>
-<form th:action="@{/todo/list/addTodo}" th:object="${newTodo}" method="post">
+<form th:action="@{/todo/list/updateTodo}" th:object="${editTodo}" method="post">
   <input type="hidden" th:field="*{id}"/>
   <input type="text" th:field="*{title}"/>
   <input type="checkbox" th:field="*{isUrgent}"/>

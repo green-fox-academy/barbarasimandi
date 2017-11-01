@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -53,6 +54,18 @@ public class TodoController {
   public String deleteTodo(@PathVariable int id, Model model) {
     model.addAttribute("delete", todoRepository.findOne(id));
     todoRepository.delete(id);
+    return "redirect:/todo/list";
+  }
+
+  @RequestMapping(value = "/list/editTodo/{id}")
+  public String editTodo(@PathVariable int id, Model model) {
+    model.addAttribute("editTodo", todoRepository.findOne(id));
+    return "edittodo";
+  }
+
+  @RequestMapping(value = "/list/updateTodo", method = RequestMethod.POST)
+  public String updateTodo(@ModelAttribute Todo todo) {
+    todoRepository.save(todo);
     return "redirect:/todo/list";
   }
 }
