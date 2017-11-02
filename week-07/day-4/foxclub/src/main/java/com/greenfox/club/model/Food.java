@@ -1,22 +1,13 @@
 package com.greenfox.club.model;
 
-public class Food {
-    public String name;
+public enum Food {
+  PURPURBREAD, APPLE, LANGOS;
 
-  public Food(String name) {
-    this.name = name;
+  Food() {
   }
 
   public String getName() {
-    return name;
+    return Food.values().toString();
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  @Override
-  public String toString() {
-    return this.name.toString();
-  }
 }

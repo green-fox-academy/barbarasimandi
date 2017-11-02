@@ -3,7 +3,7 @@ package com.greenfox.club.controller;
 import com.greenfox.club.model.Drink;
 import com.greenfox.club.model.Food;
 import com.greenfox.club.model.Fox;
-import java.util.ArrayList;
+import com.greenfox.club.model.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,23 +18,41 @@ public class MainController {
   @Autowired
   Fox fox;
 
+  @Autowired
+  Trick trick;
+
   @RequestMapping(value = "/")
   public String main(Model model) {
-    fox = new Fox("Mr. Fox", new ArrayList<>(), new Food("pur-pur bread"), new Drink("cloudy apple juice"));
     model.addAttribute("fox", fox);
     return "index";
   }
 
   @GetMapping(value = "/nutrition")
-  public String showInfo(Model model) {
-    model.addAttribute("feed", fox.getFood());
-    model.addAttribute("give_drink", fox.getDrink());
+  public String nutrition(Model model) {
+    model.addAttribute("fox", fox);
+    model.addAttribute("food", Food.values());
+    model.addAttribute("drink", Drink.values());
     return "nutrition";
   }
 
-  @PostMapping
-  public String showInfo(@ModelAttribute Fox fox) {
-    fox.feed();
-    return "reidrect:/nutrition";
+  @PostMapping("/feed")
+  public String setFood(@ModelAttribute Fox fox) {
+    fox.setFood(fox.getFood());
+    fox.setDrink(fox.getDrink());
+    return "reidrect:/";
+  }
+
+  @GetMapping("/trickcenter")
+  public String tricks(Model model) {
+    model.addAttribute("fox", fox);
+    model.addAttribute("trick", trick);
+    return "trickcenter";
+  }
+
+  @PostMapping("/addTrick")
+  public String addTrick(@ModelAttribute Trick trick) {
+    fox.addTrick(trick);
+    return "redirect:/trickcenter";
   }
 }
+

@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"/>
   <title>Nutrition Store</title>
 </head>
 <body>
-
+<form th:action="@{/feed}" th:object="${fox}" method="post">
+  <label>Food</label>
+  <select th:field="*{food}">
+    <option th:each="crumbs : ${foods}" th:text="${crumbs}" th:value="${crumbs}"></option>
+  </select>
+  <label>Drink</label>
+  <select th:field="*{drink}">
+    <option th:each="drop : ${drinks}" th:text="${drop}" th:value="${drop}"></option>
+  </select>
+  <button type="submit">Change</button>
+</form>
 </body>
 </html>
