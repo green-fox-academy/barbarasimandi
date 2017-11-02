@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Assignees</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+      <th th:text="'SECURITY LVL:GODLIKE'"></th>
+      <th th:text="'NAME'"></th>
+      <th th:text="'E-MAIL ADDRESS'"></th>
+
+    </tr>
+    <tr th:each="assignee : ${assignees}">
+      <td type="hidden" th:field="${assignee.id}"></td>
+      <td> <a th:text="${assignee.name}" th:href="@{/assignees/todos/list/{id}(id=${assignee.id})}"> </a></td>
+      <td th:text="${assignee.eMail}" ></td>
+      <td><a th:href="@{/assignees/editAssignee/{id}(id=${assignee.id})}">Edit</a></td>
+      <td>
+        <form th:action="@{/assignees/deleteAssignee/{id}(id=${assignee.id})}" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  </table>
+<a th:href="@{/assignees/addAssignee}">Add new Assignee</a>
+</body>
+</html>

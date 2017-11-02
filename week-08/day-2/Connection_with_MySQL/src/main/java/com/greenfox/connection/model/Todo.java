@@ -1,9 +1,13 @@
 package com.greenfox.connection.model;
 
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Todo {
@@ -14,6 +18,10 @@ public class Todo {
     String title;
     boolean isUrgent;
     boolean isDone;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "assignee_id")
+    Assignee assignee;
 
   public Todo(String title) {
     this.title = title;
@@ -54,5 +62,13 @@ public class Todo {
 
   public void setIsDone(boolean done) {
     isDone = done;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
   }
 }

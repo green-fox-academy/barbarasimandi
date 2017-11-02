@@ -1,6 +1,7 @@
 package com.greenfox.connection.controller;
 
 import com.greenfox.connection.model.Todo;
+import com.greenfox.connection.repository.AssigneeRepository;
 import com.greenfox.connection.repository.TodoRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,9 @@ public class TodoController {
   @Autowired
   TodoRepository todoRepository;
 
+  @Autowired
+  AssigneeRepository assigneeRepository;
+
   @RequestMapping({"/", "/list"})
   public String list(@RequestParam(required = false) Boolean isActive, Model model) {
 
@@ -30,19 +34,6 @@ public class TodoController {
     } else {
       model.addAttribute("todos", todoRepository.findAllByIsDone(isActive));
     }
-
-//    List<Todo> todoList = new ArrayList<>();
-//    for (Todo todo : todoRepository.findAll()) {
-//      if (isActive) {
-//        if (!todo.getIsDone()) {
-//          todoList.add(todo);
-//        }
-//      } else if (!isActive) {
-//        todoList.add(todo);
-//      }
-//    }
-//    model.addAttribute("todos", todoList);
-
     return "todoslist";
   }
 
@@ -68,6 +59,7 @@ public class TodoController {
   @GetMapping(value = "/list/editTodo/{id}")
   public String editTodo(@PathVariable int id, Model model) {
     model.addAttribute("editTodo", todoRepository.findOne(id));
+    model.addAttribute("listOfAssignees", assigneeRepository.findAll());
     return "edittodo";
   }
 

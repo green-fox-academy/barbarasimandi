@@ -1,6 +1,8 @@
 package com.greenfox.connection;
 
+import com.greenfox.connection.model.Assignee;
 import com.greenfox.connection.model.Todo;
+import com.greenfox.connection.repository.AssigneeRepository;
 import com.greenfox.connection.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,9 @@ public class ConnectionApplication implements CommandLineRunner {
 
 	@Autowired
 	TodoRepository todoRepository;
+
+	@Autowired
+	AssigneeRepository assigneeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConnectionApplication.class, args);

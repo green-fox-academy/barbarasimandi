@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8"/>
-  <title>Edit todo</title>
+  <meta charset="UTF-8">
+  <title>Todos of assignee</title>
 </head>
 <body>
-<h1 th:text="'Edit ' + ${editTodo.title}">Edit Todo</h1>
-<form th:action="@{/todo/list/updateTodo}" th:object="${editTodo}" method="post">
+<form th:action="@{/todos/list/{id}(id=${assignee.id})}" th:object="${assigneeTodo}" method="post">
   <input type="hidden" th:field="*{id}"/>
 
   <label for="name of todo">Name of todo:</label>
@@ -19,13 +18,6 @@
 
   <input type="checkbox" id="urgency" th:field="*{isUrgent}"/>
   <label for="urgency">Check if urgent</label>
-  <br/>
-
-  <p>
-    <select th:field="*{assignee}">
-    <option th:each="assignee : ${listOfAssignees}" th:text="${assignee.name}" th:value="${assignee.id}"></option>
-  </select>
-  </p>
   <br/>
 
   <button type="submit" value="Submit">Submit</button>
