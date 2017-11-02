@@ -23,18 +23,26 @@ public class TodoController {
   TodoRepository todoRepository;
 
   @RequestMapping({"/", "/list"})
-  public String list(@RequestParam(required = false) boolean isActive, Model model) {
-    List<Todo> todoList = new ArrayList<>();
-    for (Todo todo : todoRepository.findAll()) {
-      if (isActive) {
-        if (!todo.getIsDone()) {
-          todoList.add(todo);
-        }
-      } else if (!isActive) {
-        todoList.add(todo);
-      }
+  public String list(@RequestParam(required = false) Boolean isActive, Model model) {
+
+    if (isActive == null) {
+      model.addAttribute("todos", todoRepository.findAll());
+    } else {
+      model.addAttribute("todos", todoRepository.findAllByIsDone(isActive));
     }
-    model.addAttribute("todos", todoList);
+
+//    List<Todo> todoList = new ArrayList<>();
+//    for (Todo todo : todoRepository.findAll()) {
+//      if (isActive) {
+//        if (!todo.getIsDone()) {
+//          todoList.add(todo);
+//        }
+//      } else if (!isActive) {
+//        todoList.add(todo);
+//      }
+//    }
+//    model.addAttribute("todos", todoList);
+
     return "todoslist";
   }
 
