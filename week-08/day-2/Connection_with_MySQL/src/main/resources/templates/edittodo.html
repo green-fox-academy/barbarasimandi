@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
   <title>Edit todo</title>
 </head>
 <body>
-<h1>Edit Todo</h1>
+<h1 th:text="'Edit ' + ${editTodo.title}">Edit Todo</h1>
 <form th:action="@{/todo/list/updateTodo}" th:object="${editTodo}" method="post">
   <input type="hidden" th:field="*{id}"/>
 

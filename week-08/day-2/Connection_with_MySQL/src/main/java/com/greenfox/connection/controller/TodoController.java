@@ -57,13 +57,13 @@ public class TodoController {
     return "redirect:/todo/list";
   }
 
-  @RequestMapping(value = "/list/editTodo/{id}")
+  @GetMapping(value = "/list/editTodo/{id}")
   public String editTodo(@PathVariable int id, Model model) {
     model.addAttribute("editTodo", todoRepository.findOne(id));
     return "edittodo";
   }
 
-  @RequestMapping(value = "/list/updateTodo", method = RequestMethod.POST)
+  @PostMapping(value = "/list/updateTodo")
   public String updateTodo(@ModelAttribute Todo todo) {
     todoRepository.save(todo);
     return "redirect:/todo/list";
