@@ -32,8 +32,9 @@ public class TodoController {
     if (isActive == null) {
       model.addAttribute("todos", todoRepository.findAll());
     } else {
-      model.addAttribute("todos", todoRepository.findAllByIsDone(isActive));
+      model.addAttribute("todos", todoRepository.findAllByIsDone(!isActive));
     }
+
     return "todoslist";
   }
 

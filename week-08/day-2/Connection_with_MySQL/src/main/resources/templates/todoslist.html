@@ -6,14 +6,15 @@
 </head>
 <body>
 <h1>Todos for today</h1>
-
 <table border="1">
   <tr>
     <th th:text="'ID'"></th>
-    <th th:text="'ACTION'"></th>
+    <th th:text="'DESCRIPTION'"></th>
     <th th:text="'DONE'"></th>
     <th th:text="'URGENT'"></th>
-    <th th:text="'OPTIONS'"></th>
+    <th th:text="''"></th>
+    <th th:text="''"></th>
+    <th th:text="'ASSIGNED TO'"></th>
   </tr>
   <tr th:each="todo: ${todos}">
     <td th:text="${todo.id}" ></td>
@@ -25,6 +26,8 @@
         <form th:action="@{/todo/deleteTodo/{id}(id=${todo.id})}" method="post">
           <button type="submit">Delete</button>
         </form>
+    </td>
+    <td th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}">
     </td>
   </tr>
 </table>
