@@ -14,7 +14,9 @@
     </tr>
     <tr th:each="assignee : ${assignees}">
       <td type="hidden" th:field="${assignee.id}"></td>
-      <td> <a th:text="${assignee.name}" th:href="@{/assignees/todos/list/{id}(id=${assignee.id})}"> </a></td>
+
+      <td> <a th:href="@{/assignees/todos/list/{id}(id=${assignee.id})}" th:text="${assignee.name}" > </a></td>
+
       <td th:text="${assignee.eMail}" ></td>
       <td><a th:href="@{/assignees/editAssignee/{id}(id=${assignee.id})}">Edit</a></td>
       <td>

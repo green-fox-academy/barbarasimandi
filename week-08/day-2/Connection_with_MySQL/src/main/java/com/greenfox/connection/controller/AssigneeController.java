@@ -63,7 +63,8 @@ public class AssigneeController {
 
   @GetMapping(value = "/todos/list/{id}")
   public String assigneeTodo(@PathVariable long id, Model model) {
-    model.addAttribute("todos", assigneeRepository.findOne(id).getTodosOfSomeone());
+    Assignee ass = assigneeRepository.findOne(id);
+      model.addAttribute("todos", todoRepository.findByAssignee(ass));
     return "todoslist";
   }
 }

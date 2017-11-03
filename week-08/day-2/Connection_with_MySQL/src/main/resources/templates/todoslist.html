@@ -27,7 +27,7 @@
           <button type="submit">Delete</button>
         </form>
     </td>
-    <td th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}">
+    <td th:href="@{/todos/list/{id}}" th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}">
     </td>
   </tr>
 </table>

@@ -19,7 +19,8 @@ public class Assignee {
   String name;
 
   @OneToMany(fetch = FetchType.EAGER)
-  List<Todo> todosOfSomeone;
+  List<Todo> todos;
+
 
   public Assignee(String eMail, String name) {
     this.eMail = eMail;
@@ -37,13 +38,6 @@ public class Assignee {
     this.id = id;
   }
 
-  public List<Todo> getTodosOfSomeone() {
-    return todosOfSomeone;
-  }
-
-  public void setTodosOfSomeone(List<Todo> todosOfSomeone) {
-    this.todosOfSomeone = todosOfSomeone;
-  }
 
   public String geteMail() {
     return eMail;
@@ -60,4 +54,13 @@ public class Assignee {
   public void setName(String name) {
     this.name = name;
   }
+
+  public List<Todo> getTodos() {
+    return todos;
+  }
+
+  public void setTodos(List<Todo> todos) {
+    this.todos = todos;
+  }
+
 }
