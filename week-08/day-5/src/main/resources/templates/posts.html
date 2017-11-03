@@ -5,6 +5,7 @@
   <title>Posts</title>
 </head>
 <body>
+<a th:href="@{/posts/add}">Add new post</a>
 <h1>Posts</h1>
 <table border="1">
   <tr>
@@ -16,7 +17,10 @@
   <tr th:each="post: ${posts}">
     <td type="hidden" th:field="${post.id}"></td>
     <td th:text="${post.score}"></td>
-    <td th:text="${post.action}"></td>
+    <td>
+      <a th:href="@{/posts/upvote/{id}(id=${post.id})}">+</a>
+      <a th:href="@{/posts/downvote/{id}(id=${post.id})}">-</a>
+    </td>
     <td th:text="${post.content}"></td>
   </tr>
 </table>
