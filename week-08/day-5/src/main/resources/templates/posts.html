@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"/>
   <title>Posts</title>
 </head>
 <body>
-
+<h1>Posts</h1>
+<table border="1">
+  <tr>
+    <th></th>
+    <th th:text="'SCORE'"></th>
+    <th th:text="'Actions'"></th>
+    <th th:text="'Content'"></th>
+  </tr>
+  <tr th:each="post: ${posts}">
+    <td type="hidden" th:field="${post.id}"></td>
+    <td th:text="${post.score}"></td>
+    <td th:text="${post.action}"></td>
+    <td th:text="${post.content}"></td>
+  </tr>
+</table>
 </body>
 </html>
