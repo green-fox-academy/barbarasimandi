@@ -50,21 +50,21 @@ public class AssigneeController {
   }
 
   @GetMapping(value = "/editAssignee/{id}")
-  public String editTodo(@PathVariable long id, Model model) {
+  public String editAssignee(@PathVariable long id, Model model) {
     model.addAttribute("editAssignee", assigneeRepository.findOne(id));
     return "editassignee";
   }
 
   @PostMapping(value = "/updateAssignee")
-  public String updateTodo(@ModelAttribute Assignee assignee) {
+  public String updateAssignee(@ModelAttribute Assignee assignee) {
     assigneeRepository.save(assignee);
     return "redirect:/assignees";
   }
 
   @GetMapping(value = "/todos/list/{id}")
   public String assigneeTodo(@PathVariable long id, Model model) {
-    Assignee ass = assigneeRepository.findOne(id);
-      model.addAttribute("todos", todoRepository.findByAssignee(ass));
+    Assignee assig = assigneeRepository.findOne(id);
+      model.addAttribute("todos", todoRepository.findByAssignee(assig));
     return "todoslist";
   }
 }

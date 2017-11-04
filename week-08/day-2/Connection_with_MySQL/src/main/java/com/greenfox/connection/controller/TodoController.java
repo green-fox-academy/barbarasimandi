@@ -1,5 +1,6 @@
 package com.greenfox.connection.controller;
 
+import com.greenfox.connection.model.Assignee;
 import com.greenfox.connection.model.Todo;
 import com.greenfox.connection.repository.AssigneeRepository;
 import com.greenfox.connection.repository.TodoRepository;
@@ -68,5 +69,13 @@ public class TodoController {
   public String updateTodo(@ModelAttribute Todo todo) {
     todoRepository.save(todo);
     return "redirect:/todo/list";
+  }
+
+  @GetMapping(value = "/todos/list/{id}")
+  public String assigneeTodo(@PathVariable long id, Model model) {
+    Assignee assig = assigneeRepository.findOne(id);
+    model.addAttribute("todos", todoRepository.findByAssignee(assig));
+    model.addAttribute("assignee", assig);
+    return "todoslist";
   }
 }
