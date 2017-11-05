@@ -24,13 +24,13 @@ public class PostController {
 
   @RequestMapping({"/", ""})
   public String listPosts(Model model) {
-    model.addAttribute("posts", postRepository.findAll());
+    postService.listPosts(model);
     return "posts";
   }
 
   @GetMapping(value = "/add")
   public String addPost(Model model) {
-    model.addAttribute("newPost", new Post());
+    postService.addPost(model);
     return "addpost";
   }
 
@@ -51,5 +51,4 @@ public class PostController {
     postService.downVote(id);
     return "redirect:/posts";
   }
-
 }
