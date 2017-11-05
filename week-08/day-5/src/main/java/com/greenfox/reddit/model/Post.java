@@ -1,35 +1,42 @@
 package com.greenfox.reddit.model;
 
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "post")
 public class Post {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  long id;
+  Long id;
+
+  private LocalDate createdAt;
 
   int score;
-  String action;
-  String content;
 
-  public Post(int score, String action, String content) {
+  String action;
+
+  String content;
+  public Post(int score, String content) {
     this.score = score;
-    this.action = action;
     this.content = content;
+    this.createdAt = LocalDate.now();
   }
 
   public Post() {
+    this.createdAt = LocalDate.now();
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -55,5 +62,13 @@ public class Post {
 
   public void setContent(String content) {
     this.content = content;
+  }
+
+  public LocalDate getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDate createdAt) {
+    this.createdAt = createdAt;
   }
 }

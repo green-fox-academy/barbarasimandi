@@ -13,15 +13,17 @@
     <th th:text="'SCORE'"></th>
     <th th:text="'Actions'"></th>
     <th th:text="'Content'"></th>
+    <th th:text="'Date'"></th>
   </tr>
-  <tr th:each="post: ${posts}">
+  <tr th:each="post: ${posts}" th:object="${post}">
     <td type="hidden" th:field="${post.id}"></td>
-    <td th:text="${post.score}"></td>
+    <td th:text="*{score}"></td>
     <td>
       <a th:href="@{/posts/upvote/{id}(id=${post.id})}">+</a>
       <a th:href="@{/posts/downvote/{id}(id=${post.id})}">-</a>
     </td>
-    <td th:text="${post.content}"></td>
+    <td th:text="*{content}"></td>
+    <td th:text="${post.getCreatedAt()}"></td>
   </tr>
 </table>
 </body>
