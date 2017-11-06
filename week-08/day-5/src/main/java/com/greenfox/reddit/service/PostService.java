@@ -13,12 +13,16 @@ public class PostService {
   @Autowired
   PostRepository postRepository;
 
-  public void listPosts(Model model) {
-    model.addAttribute("posts", postRepository.findAllByOrderByScoreDesc());
+  public Iterable<Post> listPosts() {
+    return postRepository.findAllByOrderByScoreDesc();
   }
 
-  public void addPost(Model model) {
-    model.addAttribute("newPost", new Post());
+  public Integer numberOfRows() {
+    return postRepository.numberOfRows();
+  }
+
+  public Post addPost() {
+    return new Post();
   }
 
   public void upVote(Long id) {

@@ -26,13 +26,14 @@ public class PostController {
 
   @RequestMapping({"/", ""})
   public String listPosts(Model model) {
-    postService.listPosts(model);
+    model.addAttribute("posts", postService.listPosts());
+    model.addAttribute("nrOfRows", postService.numberOfRows());
     return "posts";
   }
 
   @GetMapping(value = "/add")
   public String addPost(Model model) {
-    postService.addPost(model);
+    model.addAttribute("newPost", postService.addPost());
     return "addpost";
   }
 

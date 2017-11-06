@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 public interface PostRepository extends CrudRepository<Post, Long> {
 
   @Query(value = "SELECT * FROM posts.post ORDER BY score DESC LIMIT 10", nativeQuery = true)
-  public List<Post> findAllByOrderByScoreDesc();
+  List<Post> findAllByOrderByScoreDesc();
 
+  @Query(value = "SELECT COUNT(*) FROM posts.post", nativeQuery = true)
+  Integer numberOfRows();
 }
