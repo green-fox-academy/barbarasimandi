@@ -13,8 +13,8 @@ public class PostService {
   @Autowired
   PostRepository postRepository;
 
-  public Iterable<Post> listPosts() {
-    return postRepository.findAllByOrderByScoreDesc();
+  public Iterable<Post> listPosts(int pageId) {
+    return postRepository.findAllByOrderByScoreDesc(pageId * 10);
   }
 
   public Integer numberOfRows() {

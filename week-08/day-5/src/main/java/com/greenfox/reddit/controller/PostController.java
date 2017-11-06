@@ -25,8 +25,12 @@ public class PostController {
   PostService postService;
 
   @RequestMapping({"/", ""})
-  public String listPosts(Model model) {
-    model.addAttribute("posts", postService.listPosts());
+  public String listPosts(@RequestParam(value = "pageId", defaultValue = "0") int pageId, Model model) {
+    if (pageId < 0 || pageId > postService.numberOfRows() / 10 + 1) {
+      return "redirect:/posts";
+    }
+    model.addAttribute("posts", postService.listPosts(pageId));
+    model.addAttribute("pageId", pageId);
     model.addAttribute("nrOfRows", postService.numberOfRows());
     return "posts";
   }
