@@ -1,9 +1,9 @@
 package com.greenfox.frontend.controller;
 
-public class DoublingError {
+public class Error {
   String error;
 
-  public DoublingError() {
+  public Error() {
   }
 
   public String getError() {
