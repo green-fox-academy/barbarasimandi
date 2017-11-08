@@ -1,4 +1,4 @@
-package com.greenfox.frontend.controller;
+package com.greenfox.frontend.exception;
 
 public class Error {
   String error;

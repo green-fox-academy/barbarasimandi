@@ -1,6 +1,5 @@
 package com.greenfox.frontend;
 
-
 import java.nio.charset.Charset;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,8 +108,7 @@ public class FrontendApplicationTests {
 				.content("{\"until\": \"4\"}"))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(contentType))
-				.andExpect(jsonPath("$.result", is(24)))
-				.andExpect(jsonPath("$.what", is("factor")));
+				.andExpect(jsonPath("$.result", is(24)));
 	}
 
 	@Test
@@ -120,8 +118,7 @@ public class FrontendApplicationTests {
 				.content("{\"until\": \"4\"}"))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(contentType))
-				.andExpect(jsonPath("$.result", is(10)))
-				.andExpect(jsonPath("$.what", is("sum")));
+				.andExpect(jsonPath("$.result", is(10)));
 	}
 
 	@Test

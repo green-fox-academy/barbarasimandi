@@ -22,7 +22,7 @@ public class Target {
 
     if(what.equals("sum")) {
       Integer temp = 0;
-      for (int i = 2; i <= this.until; i++) {
+      for (int i = 1; i <= this.until; i++) {
         temp += i;
       }
       return new ResultNumber(temp);
