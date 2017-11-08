@@ -1,12 +1,10 @@
 package com.greenfox.frontend.controller;
 
 import com.greenfox.frontend.model.Appenda;
-import com.greenfox.frontend.model.ArrayHandler;
 import com.greenfox.frontend.model.ResultNumber;
 import com.greenfox.frontend.model.Doubling;
 import com.greenfox.frontend.model.Greeting;
-import com.greenfox.frontend.model.Until;
-import org.springframework.http.ResponseEntity;
+import com.greenfox.frontend.model.Target;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -40,8 +38,8 @@ public class RestController {
   }
 
   @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
-  public ResultNumber sumOrMultiply(@PathVariable String what, @RequestBody Until until) {
-    ResultNumber resultNumber = new ResultNumber(until.getUntil(), what);
+  public ResultNumber sumOrMultiply(@PathVariable String what, @RequestBody Target target) {
+    ResultNumber resultNumber = target.getResultNumber(what);
     return resultNumber;
   }
 

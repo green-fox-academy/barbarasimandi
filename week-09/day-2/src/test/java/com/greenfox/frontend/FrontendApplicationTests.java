@@ -40,6 +40,9 @@ public class FrontendApplicationTests {
 		mock = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
+
+
+	//Doubling
 	@Test
 	public void testDoubling() throws Exception {
 		mock.perform(get("/doubling?input=4"))
@@ -57,6 +60,9 @@ public class FrontendApplicationTests {
 				.andExpect(jsonPath("$.error", is("Please provide an input!")));
 	}
 
+
+
+	//Greeting
 	@Test
 	public void testGreeter() throws Exception {
 		mock.perform(get("/greeter/?name=Barbi&title=genious"))
@@ -81,6 +87,51 @@ public class FrontendApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(contentType))
 				.andExpect(jsonPath("$.error", is("Please provide a title!")));
+	}
+
+
+
+	//AppendA
+	@Test
+	public void testAppendA() throws Exception {
+		mock.perform(get("/appenda/kuty"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(contentType))
+				.andExpect(jsonPath("$.appended", is("kutya")));
+	}
+
+
+	//DoUntil
+	@Test
+	public void testDoUntilFactor() throws Exception {
+		mock.perform(post("/dountil/factor")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"until\": \"4\"}"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(contentType))
+				.andExpect(jsonPath("$.result", is(24)))
+				.andExpect(jsonPath("$.what", is("factor")));
+	}
+
+	@Test
+	public void testDoUntilSum() throws Exception {
+		mock.perform(post("/dountil/sum")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"until\": \"4\"}"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(contentType))
+				.andExpect(jsonPath("$.result", is(10)))
+				.andExpect(jsonPath("$.what", is("sum")));
+	}
+
+	@Test
+	public void testDoUntilNoInputError() throws Exception {
+		mock.perform(post("/dountil/sum")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(""))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(contentType))
+				.andExpect(jsonPath("$.error", is("Please provide a number!")));
 	}
 
 }
