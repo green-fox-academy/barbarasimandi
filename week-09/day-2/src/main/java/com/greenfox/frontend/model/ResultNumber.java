@@ -1,11 +1,11 @@
 package com.greenfox.frontend.model;
 
-public class DoUntil {
+public class ResultNumber {
 
   Integer result;
   String what;
 
-  public DoUntil(Integer until, String what) {
+  public ResultNumber(Integer until, String what) {
 
     this.what = what;
 
@@ -27,7 +27,7 @@ public class DoUntil {
     }
   }
 
-  public DoUntil() {
+  public ResultNumber() {
   }
 
   public Integer getResult() {

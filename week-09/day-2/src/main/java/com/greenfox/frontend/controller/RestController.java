@@ -1,10 +1,12 @@
 package com.greenfox.frontend.controller;
 
 import com.greenfox.frontend.model.Appenda;
-import com.greenfox.frontend.model.DoUntil;
+import com.greenfox.frontend.model.ArrayHandler;
+import com.greenfox.frontend.model.ResultNumber;
 import com.greenfox.frontend.model.Doubling;
 import com.greenfox.frontend.model.Greeting;
 import com.greenfox.frontend.model.Until;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,10 +40,16 @@ public class RestController {
   }
 
   @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
-  public DoUntil doIt(@PathVariable String what, @RequestBody Until until) {
-    DoUntil doUntil = new DoUntil(until.getUntil(), what);
-    return doUntil;
+  public ResultNumber sumOrMultiply(@PathVariable String what, @RequestBody Until until) {
+    ResultNumber resultNumber = new ResultNumber(until.getUntil(), what);
+    return resultNumber;
   }
+
+//  @RequestMapping(value = "/arrays", method = RequestMethod.POST)
+//  public ResultNumber handleTheArray(@RequestBody ArrayHandler arrayHandler) {
+//
+//    return ;
+//  }
 
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
