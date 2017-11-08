@@ -1,6 +1,7 @@
 package com.greenfox.frontend.controller;
 
 import com.greenfox.frontend.model.Appenda;
+import com.greenfox.frontend.model.ArrayHandler;
 import com.greenfox.frontend.model.ResultNumber;
 import com.greenfox.frontend.model.Doubling;
 import com.greenfox.frontend.model.Greeting;
@@ -43,11 +44,11 @@ public class RestController {
     return resultNumber;
   }
 
-//  @RequestMapping(value = "/arrays", method = RequestMethod.POST)
-//  public ResultNumber handleTheArray(@RequestBody ArrayHandler arrayHandler) {
-//
-//    return ;
-//  }
+  @RequestMapping(value = "/arrays", method = RequestMethod.POST)
+  public Object handleTheArray(@RequestBody ArrayHandler arrayHandler) {
+    Object result = arrayHandler.getResultNumber();
+    return result;
+  }
 
 
   @ExceptionHandler(MissingServletRequestParameterException.class)

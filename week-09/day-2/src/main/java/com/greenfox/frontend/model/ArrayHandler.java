@@ -5,39 +5,42 @@ import java.util.List;
 
 public class ArrayHandler {
 
-  Integer result;
   String what;
   List<Integer> numbers;
 
   public ArrayHandler(String what, List<Integer> numbers) {
     this.what = what;
     this.numbers = numbers;
+  }
 
-    if (what.equals("sum")) {
+  public ArrayHandler() {
+  }
+
+  public Object getResultNumber() {
+    if(what.equals("sum")) {
       Integer temp = 0;
-      for (int i = 1; i <= numbers.size(); i++) {
-        temp += i;
+      for (int i = 0; i < this.numbers.size() - 1; i++) {
+        temp += numbers.get(i);
       }
-      this.result = temp;
+      return new ResultNumber(temp);
     }
 
-    else if (what.equals("factor")) {
+    else if (what.equals("multiply")) {
       Integer temp = 1;
-      for (int i = 1; i <= numbers.size(); i++) {
-        temp *= i;
+      for (int i = 0; i <= this.numbers.size() - 1; i++) {
+        temp *= numbers.get(i);
       }
-      this.result = temp;
+      return new ResultNumber(temp);
     }
 
     else if (what.equals("double")) {
       List<Integer> temp = new ArrayList<>();
-      for (int i = 0; i < numbers.size(); i++) {
+      for (int i = 0; i < this.numbers.size(); i++) {
         temp.add(numbers.get(i) * 2);
       }
+      return new ResultNumberArray(temp);
     }
-  }
-
-  public ArrayHandler() {
+    return null;
   }
 
   public String getWhat() {
@@ -56,7 +59,4 @@ public class ArrayHandler {
     this.numbers = numbers;
   }
 
-//  public Integer sum() {
-//
-//  }
 }
