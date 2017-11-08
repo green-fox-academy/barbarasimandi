@@ -4,8 +4,11 @@ import com.greenfox.barbi.restcontroller.model.Appenda;
 import com.greenfox.barbi.restcontroller.model.ArrayHandler;
 import com.greenfox.barbi.restcontroller.model.Doubling;
 import com.greenfox.barbi.restcontroller.model.Greeting;
+import com.greenfox.barbi.restcontroller.model.Log;
 import com.greenfox.barbi.restcontroller.model.ResultNumber;
 import com.greenfox.barbi.restcontroller.model.Target;
+import com.greenfox.barbi.restcontroller.service.LogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+
+  @Autowired
+  LogService logService;
 
   @RequestMapping(value = "/doubling", method = RequestMethod.GET)
   public Doubling doubleIt(@RequestParam(value = "input", required = true) Integer input) {
