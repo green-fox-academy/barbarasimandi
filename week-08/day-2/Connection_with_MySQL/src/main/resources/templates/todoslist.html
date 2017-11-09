@@ -28,7 +28,7 @@
         </form>
     </td>
     <td >
-      <a th:href="@{/assignees/todos/list/{id}(id=${todo.assignee.getId()})}" th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}"></a>
+      <a th:href="${todo.assignee} == null ? @{#} : @{/assignees/todos/list/{id}(id=${todo.assignee.getId()})}" th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}"></a>
     </td>
   </tr>
 </table>
