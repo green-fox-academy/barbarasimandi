@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Todo List</title>
 </head>
 <body>
 <h1>Todos for today</h1>
-<table border="1">
+<div class="container-fluid">
+
+<table class="table table-bordered">
+  <thead class="dark">
   <tr>
-    <th th:text="'ID'"></th>
-    <th th:text="'DESCRIPTION'"></th>
-    <th th:text="'DONE'"></th>
-    <th th:text="'URGENT'"></th>
-    <th th:text="''"></th>
-    <th th:text="''"></th>
-    <th th:text="'ASSIGNED TO'"></th>
+    <th scope="col" th:text="'ID'"></th>
+    <th scope="col" th:text="'DESCRIPTION'"></th>
+    <th scope="col" th:text="'DONE'"></th>
+    <th scope="col" th:text="'URGENT'"></th>
+    <th scope="col" th:text="''"></th>
+    <th scope="col" th:text="''"></th>
+    <th scope="col" th:text="'ASSIGNED TO'"></th>
   </tr>
-  <tr th:each="todo: ${todos}">
-    <td th:text="${todo.id}" ></td>
+  </thead>
+
+  <tbody>
+  <tr th:each="todo: ${todos}"  th:class="${todo.isDone ? 'success' : ''}" th:classappend="${todo.isUrgent ? 'danger' : ''}">
+  <td th:text="${todo.id}" ></td>
     <td th:text="${todo.title}"></td>
     <td th:text="${todo.isDone} ? 'yes' : 'no'"></td>
     <td th:text="${todo.isUrgent} ? 'yes' : 'no'"></td>
@@ -28,12 +36,19 @@
         </form>
     </td>
     <td >
-      <a th:href="${todo.assignee} == null ? @{#} : @{/assignees/todos/list/{id}(id=${todo.assignee.getId()})}" th:text="${todo.assignee} == null ? 'Nobody assigned yet' : ${todo.assignee.getName()}"></a>
+      <a th:href="${todo.assignee} == null ? @{#} : @{/assignees/todos/list/{id}(id=${todo.assignee.getId()})}" th:text="${todo.assignee} == null ? 'Nobody assigned yet, go to Edit' : ${todo.assignee.getName()}"></a>
     </td>
   </tr>
+  </tbody>
 </table>
+</div>
 <a th:href="@{/todo/list/addTodo/}">Add new Todo</a>
 <br/>
 <a th:href="@{/assignees}">Go to assignee editor</a>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
