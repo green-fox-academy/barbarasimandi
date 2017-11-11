@@ -1,11 +1,12 @@
 package com.greenfox.barbi.restcontroller.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.servlet.http.HttpServletRequest;
 
 @Entity
 public class Log {
@@ -14,14 +15,14 @@ public class Log {
   @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
 
-  LocalDateTime createdAt;
+  String createdAt;
   String endpoint;
   String data;
 
-  public Log(String endpoint, String data) {
-    this.createdAt = LocalDateTime.now();
-    this.endpoint = endpoint;
-    this.data = data;
+  public Log(HttpServletRequest request) {
+    createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+    endpoint = request.getServletPath();
+    data = request.getQueryString();
   }
 
   public Log() {
@@ -35,11 +36,11 @@ public class Log {
     this.id = id;
   }
 
-  public LocalDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 

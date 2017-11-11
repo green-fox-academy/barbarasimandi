@@ -19,7 +19,7 @@ public class ArrayHandler {
   public Object getResultNumber() {
     if(what.equals("sum")) {
       Integer temp = 0;
-      for (int i = 0; i < this.numbers.size() - 1; i++) {
+      for (int i = 0; i < this.numbers.size(); i++) {
         temp += numbers.get(i);
       }
       return new ResultNumber(temp);
