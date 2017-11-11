@@ -1,8 +1,5 @@
 package com.greenfox.barbi.groot.exception;
 
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-
 public class GrootError {
 
   String error;
