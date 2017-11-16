@@ -41,7 +41,7 @@ public class TodoController {
 
   @GetMapping(value = "/list/bytitle")
   public String searchByTitle(@RequestParam(required = false) String keyword, Model model) {
-    model.addAttribute("todos", todoRepository.findAllByTitle(keyword));
+    model.addAttribute("todos", todoRepository.findTitle(keyword));
     return "todoslist";
   }
 

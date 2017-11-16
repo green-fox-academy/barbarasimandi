@@ -10,8 +10,8 @@
 <h1>Todos for today</h1>
 <div class="container-fluid">
 
-  <form th:action="@{/todo/list/bytitle}">
-    <input type="search" placeholder="Search in description"/>
+  <form action="" th:action="@{/todo/list/bytitle}">
+    <input type="search" placeholder="Search in description" name="keyword"/>
     <button type="submit">Search</button>
   </form>
 
